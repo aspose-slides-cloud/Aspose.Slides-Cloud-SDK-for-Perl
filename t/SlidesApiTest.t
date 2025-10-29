@@ -1792,6 +1792,141 @@ subtest 'create_animation_interactive_sequence_effect invalid storage' => sub {
 };
 
 #
+# create_caption_track test
+#
+subtest 'create_caption_track' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $utils->initialize('create_caption_track', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        fail("create_caption_track raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'create_caption_track invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ name } = $utils->invalidize_param_value('create_caption_track', 'name', $params{ name }, 'string');
+    $utils->initialize('create_caption_track', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'name', 'string');
+    }
+};
+
+subtest 'create_caption_track invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('create_caption_track', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('create_caption_track', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'slide_index', 'int');
+    }
+};
+
+subtest 'create_caption_track invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('create_caption_track', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('create_caption_track', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'shape_index', 'int');
+    }
+};
+
+subtest 'create_caption_track invalid label' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ label } = $utils->invalidize_param_value('create_caption_track', 'label', $params{ label }, 'string');
+    $utils->initialize('create_caption_track', 'label', $params{ label });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'label', $params{ label }, 'string', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'label', 'string');
+    }
+};
+
+subtest 'create_caption_track invalid data' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ data } = $utils->invalidize_param_value('create_caption_track', 'data', $params{ data }, 'string');
+    $utils->initialize('create_caption_track', 'data', $params{ data });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'data', $params{ data }, 'string', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'data', 'string');
+    }
+};
+
+subtest 'create_caption_track invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ password } = $utils->invalidize_param_value('create_caption_track', 'password', $params{ password }, 'string');
+    $utils->initialize('create_caption_track', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'password', 'string');
+    }
+};
+
+subtest 'create_caption_track invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('create_caption_track', 'folder', $params{ folder }, 'string');
+    $utils->initialize('create_caption_track', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'folder', 'string');
+    }
+};
+
+subtest 'create_caption_track invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('create_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_caption_track', 'storage', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('create_caption_track', 'storage', $params{ storage }, 'string');
+    $utils->initialize('create_caption_track', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_caption_track', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('create_caption_track', 'storage', 'string');
+    }
+};
+
+#
 # create_chart_category test
 #
 subtest 'create_chart_category' => sub {
@@ -5332,141 +5467,6 @@ subtest 'create_vba_module invalid storage' => sub {
 };
 
 #
-# create_video_caption_track test
-#
-subtest 'create_video_caption_track' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $utils->initialize('create_video_caption_track', '');
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        fail("create_video_caption_track raised an exception: $@");
-    }
-    pass();
-};
-
-subtest 'create_video_caption_track invalid name' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ name } = $utils->invalidize_param_value('create_video_caption_track', 'name', $params{ name }, 'string');
-    $utils->initialize('create_video_caption_track', 'name', $params{ name });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'name', $params{ name }, 'string', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'name', 'string');
-    }
-};
-
-subtest 'create_video_caption_track invalid slide_index' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ slide_index } = $utils->invalidize_param_value('create_video_caption_track', 'slide_index', $params{ slide_index }, 'int');
-    $utils->initialize('create_video_caption_track', 'slide_index', $params{ slide_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'slide_index', $params{ slide_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'slide_index', 'int');
-    }
-};
-
-subtest 'create_video_caption_track invalid shape_index' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ shape_index } = $utils->invalidize_param_value('create_video_caption_track', 'shape_index', $params{ shape_index }, 'int');
-    $utils->initialize('create_video_caption_track', 'shape_index', $params{ shape_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'shape_index', $params{ shape_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'shape_index', 'int');
-    }
-};
-
-subtest 'create_video_caption_track invalid label' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ label } = $utils->invalidize_param_value('create_video_caption_track', 'label', $params{ label }, 'string');
-    $utils->initialize('create_video_caption_track', 'label', $params{ label });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'label', $params{ label }, 'string', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'label', 'string');
-    }
-};
-
-subtest 'create_video_caption_track invalid data' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ data } = $utils->invalidize_param_value('create_video_caption_track', 'data', $params{ data }, 'string');
-    $utils->initialize('create_video_caption_track', 'data', $params{ data });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'data', $params{ data }, 'string', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'data', 'string');
-    }
-};
-
-subtest 'create_video_caption_track invalid password' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ password } = $utils->invalidize_param_value('create_video_caption_track', 'password', $params{ password }, 'string');
-    $utils->initialize('create_video_caption_track', 'password', $params{ password });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'password', $params{ password }, 'string', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'password', 'string');
-    }
-};
-
-subtest 'create_video_caption_track invalid folder' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ folder } = $utils->invalidize_param_value('create_video_caption_track', 'folder', $params{ folder }, 'string');
-    $utils->initialize('create_video_caption_track', 'folder', $params{ folder });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'folder', $params{ folder }, 'string', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'folder', 'string');
-    }
-};
-
-subtest 'create_video_caption_track invalid storage' => sub {
-    my %params = ('name' => $utils->get_param_value('create_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('create_video_caption_track', 'shape_index', 'int'), 'label' => $utils->get_param_value('create_video_caption_track', 'label', 'string'), 'data' => $utils->get_param_value('create_video_caption_track', 'data', 'string'), 'password' => $utils->get_param_value('create_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('create_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('create_video_caption_track', 'storage', 'string'));
-    $params{ storage } = $utils->invalidize_param_value('create_video_caption_track', 'storage', $params{ storage }, 'string');
-    $utils->initialize('create_video_caption_track', 'storage', $params{ storage });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->create_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('create_video_caption_track', 'storage', $params{ storage }, 'string', $@);
-    } else {
-        $utils->assert_no_error('create_video_caption_track', 'storage', 'string');
-    }
-};
-
-#
 # create_watermark test
 #
 subtest 'create_watermark' => sub {
@@ -6423,6 +6423,231 @@ subtest 'delete_background invalid storage' => sub {
         $utils->assert_error('delete_background', 'storage', $params{ storage }, 'string', $@);
     } else {
         $utils->assert_no_error('delete_background', 'storage', 'string');
+    }
+};
+
+#
+# delete_caption_track test
+#
+subtest 'delete_caption_track' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $utils->initialize('delete_caption_track', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        fail("delete_caption_track raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'delete_caption_track invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $params{ name } = $utils->invalidize_param_value('delete_caption_track', 'name', $params{ name }, 'string');
+    $utils->initialize('delete_caption_track', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_track', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_track', 'name', 'string');
+    }
+};
+
+subtest 'delete_caption_track invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('delete_caption_track', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('delete_caption_track', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_track', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_track', 'slide_index', 'int');
+    }
+};
+
+subtest 'delete_caption_track invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('delete_caption_track', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('delete_caption_track', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_track', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_track', 'shape_index', 'int');
+    }
+};
+
+subtest 'delete_caption_track invalid captions_index' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $params{ captions_index } = $utils->invalidize_param_value('delete_caption_track', 'captions_index', $params{ captions_index }, 'int');
+    $utils->initialize('delete_caption_track', 'captions_index', $params{ captions_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_track', 'captions_index', $params{ captions_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_track', 'captions_index', 'int');
+    }
+};
+
+subtest 'delete_caption_track invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $params{ password } = $utils->invalidize_param_value('delete_caption_track', 'password', $params{ password }, 'string');
+    $utils->initialize('delete_caption_track', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_track', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_track', 'password', 'string');
+    }
+};
+
+subtest 'delete_caption_track invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('delete_caption_track', 'folder', $params{ folder }, 'string');
+    $utils->initialize('delete_caption_track', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_track', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_track', 'folder', 'string');
+    }
+};
+
+subtest 'delete_caption_track invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_track', 'storage', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('delete_caption_track', 'storage', $params{ storage }, 'string');
+    $utils->initialize('delete_caption_track', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_track(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_track', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_track', 'storage', 'string');
+    }
+};
+
+#
+# delete_caption_tracks test
+#
+subtest 'delete_caption_tracks' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_tracks', 'storage', 'string'));
+    $utils->initialize('delete_caption_tracks', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_tracks(%params);
+    };
+    if ($@) {
+        fail("delete_caption_tracks raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'delete_caption_tracks invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_tracks', 'storage', 'string'));
+    $params{ name } = $utils->invalidize_param_value('delete_caption_tracks', 'name', $params{ name }, 'string');
+    $utils->initialize('delete_caption_tracks', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_tracks', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_tracks', 'name', 'string');
+    }
+};
+
+subtest 'delete_caption_tracks invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_tracks', 'storage', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('delete_caption_tracks', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('delete_caption_tracks', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_tracks', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_tracks', 'slide_index', 'int');
+    }
+};
+
+subtest 'delete_caption_tracks invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_tracks', 'storage', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('delete_caption_tracks', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('delete_caption_tracks', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_tracks', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_tracks', 'shape_index', 'int');
+    }
+};
+
+subtest 'delete_caption_tracks invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_tracks', 'storage', 'string'));
+    $params{ password } = $utils->invalidize_param_value('delete_caption_tracks', 'password', $params{ password }, 'string');
+    $utils->initialize('delete_caption_tracks', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_tracks', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_tracks', 'password', 'string');
+    }
+};
+
+subtest 'delete_caption_tracks invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_tracks', 'storage', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('delete_caption_tracks', 'folder', $params{ folder }, 'string');
+    $utils->initialize('delete_caption_tracks', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_tracks', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_tracks', 'folder', 'string');
+    }
+};
+
+subtest 'delete_caption_tracks invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('delete_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_caption_tracks', 'storage', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('delete_caption_tracks', 'storage', $params{ storage }, 'string');
+    $utils->initialize('delete_caption_tracks', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->delete_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('delete_caption_tracks', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('delete_caption_tracks', 'storage', 'string');
     }
 };
 
@@ -11512,231 +11737,6 @@ subtest 'delete_vba_module invalid storage' => sub {
 };
 
 #
-# delete_video_caption_track test
-#
-subtest 'delete_video_caption_track' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $utils->initialize('delete_video_caption_track', '');
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        fail("delete_video_caption_track raised an exception: $@");
-    }
-    pass();
-};
-
-subtest 'delete_video_caption_track invalid name' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $params{ name } = $utils->invalidize_param_value('delete_video_caption_track', 'name', $params{ name }, 'string');
-    $utils->initialize('delete_video_caption_track', 'name', $params{ name });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_track', 'name', $params{ name }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_track', 'name', 'string');
-    }
-};
-
-subtest 'delete_video_caption_track invalid slide_index' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $params{ slide_index } = $utils->invalidize_param_value('delete_video_caption_track', 'slide_index', $params{ slide_index }, 'int');
-    $utils->initialize('delete_video_caption_track', 'slide_index', $params{ slide_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_track', 'slide_index', $params{ slide_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_track', 'slide_index', 'int');
-    }
-};
-
-subtest 'delete_video_caption_track invalid shape_index' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $params{ shape_index } = $utils->invalidize_param_value('delete_video_caption_track', 'shape_index', $params{ shape_index }, 'int');
-    $utils->initialize('delete_video_caption_track', 'shape_index', $params{ shape_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_track', 'shape_index', $params{ shape_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_track', 'shape_index', 'int');
-    }
-};
-
-subtest 'delete_video_caption_track invalid captions_index' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $params{ captions_index } = $utils->invalidize_param_value('delete_video_caption_track', 'captions_index', $params{ captions_index }, 'int');
-    $utils->initialize('delete_video_caption_track', 'captions_index', $params{ captions_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_track', 'captions_index', $params{ captions_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_track', 'captions_index', 'int');
-    }
-};
-
-subtest 'delete_video_caption_track invalid password' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $params{ password } = $utils->invalidize_param_value('delete_video_caption_track', 'password', $params{ password }, 'string');
-    $utils->initialize('delete_video_caption_track', 'password', $params{ password });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_track', 'password', $params{ password }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_track', 'password', 'string');
-    }
-};
-
-subtest 'delete_video_caption_track invalid folder' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $params{ folder } = $utils->invalidize_param_value('delete_video_caption_track', 'folder', $params{ folder }, 'string');
-    $utils->initialize('delete_video_caption_track', 'folder', $params{ folder });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_track', 'folder', $params{ folder }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_track', 'folder', 'string');
-    }
-};
-
-subtest 'delete_video_caption_track invalid storage' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_track', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_track', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_track', 'shape_index', 'int'), 'captions_index' => $utils->get_param_value('delete_video_caption_track', 'captions_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_track', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_track', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_track', 'storage', 'string'));
-    $params{ storage } = $utils->invalidize_param_value('delete_video_caption_track', 'storage', $params{ storage }, 'string');
-    $utils->initialize('delete_video_caption_track', 'storage', $params{ storage });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_track(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_track', 'storage', $params{ storage }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_track', 'storage', 'string');
-    }
-};
-
-#
-# delete_video_caption_tracks test
-#
-subtest 'delete_video_caption_tracks' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_tracks', 'storage', 'string'));
-    $utils->initialize('delete_video_caption_tracks', '');
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_tracks(%params);
-    };
-    if ($@) {
-        fail("delete_video_caption_tracks raised an exception: $@");
-    }
-    pass();
-};
-
-subtest 'delete_video_caption_tracks invalid name' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_tracks', 'storage', 'string'));
-    $params{ name } = $utils->invalidize_param_value('delete_video_caption_tracks', 'name', $params{ name }, 'string');
-    $utils->initialize('delete_video_caption_tracks', 'name', $params{ name });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_tracks', 'name', $params{ name }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_tracks', 'name', 'string');
-    }
-};
-
-subtest 'delete_video_caption_tracks invalid slide_index' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_tracks', 'storage', 'string'));
-    $params{ slide_index } = $utils->invalidize_param_value('delete_video_caption_tracks', 'slide_index', $params{ slide_index }, 'int');
-    $utils->initialize('delete_video_caption_tracks', 'slide_index', $params{ slide_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_tracks', 'slide_index', $params{ slide_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_tracks', 'slide_index', 'int');
-    }
-};
-
-subtest 'delete_video_caption_tracks invalid shape_index' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_tracks', 'storage', 'string'));
-    $params{ shape_index } = $utils->invalidize_param_value('delete_video_caption_tracks', 'shape_index', $params{ shape_index }, 'int');
-    $utils->initialize('delete_video_caption_tracks', 'shape_index', $params{ shape_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_tracks', 'shape_index', $params{ shape_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_tracks', 'shape_index', 'int');
-    }
-};
-
-subtest 'delete_video_caption_tracks invalid password' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_tracks', 'storage', 'string'));
-    $params{ password } = $utils->invalidize_param_value('delete_video_caption_tracks', 'password', $params{ password }, 'string');
-    $utils->initialize('delete_video_caption_tracks', 'password', $params{ password });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_tracks', 'password', $params{ password }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_tracks', 'password', 'string');
-    }
-};
-
-subtest 'delete_video_caption_tracks invalid folder' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_tracks', 'storage', 'string'));
-    $params{ folder } = $utils->invalidize_param_value('delete_video_caption_tracks', 'folder', $params{ folder }, 'string');
-    $utils->initialize('delete_video_caption_tracks', 'folder', $params{ folder });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_tracks', 'folder', $params{ folder }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_tracks', 'folder', 'string');
-    }
-};
-
-subtest 'delete_video_caption_tracks invalid storage' => sub {
-    my %params = ('name' => $utils->get_param_value('delete_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('delete_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('delete_video_caption_tracks', 'shape_index', 'int'), 'password' => $utils->get_param_value('delete_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('delete_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('delete_video_caption_tracks', 'storage', 'string'));
-    $params{ storage } = $utils->invalidize_param_value('delete_video_caption_tracks', 'storage', $params{ storage }, 'string');
-    $utils->initialize('delete_video_caption_tracks', 'storage', $params{ storage });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->delete_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('delete_video_caption_tracks', 'storage', $params{ storage }, 'string', $@);
-    } else {
-        $utils->assert_no_error('delete_video_caption_tracks', 'storage', 'string');
-    }
-};
-
-#
 # delete_watermark test
 #
 subtest 'delete_watermark' => sub {
@@ -14403,6 +14403,126 @@ subtest 'get_background invalid storage' => sub {
         $utils->assert_error('get_background', 'storage', $params{ storage }, 'string', $@);
     } else {
         $utils->assert_no_error('get_background', 'storage', 'string');
+    }
+};
+
+#
+# get_caption_tracks test
+#
+subtest 'get_caption_tracks' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $utils->initialize('get_caption_tracks', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        fail("get_caption_tracks raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'get_caption_tracks invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $params{ name } = $utils->invalidize_param_value('get_caption_tracks', 'name', $params{ name }, 'string');
+    $utils->initialize('get_caption_tracks', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_caption_tracks', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('get_caption_tracks', 'name', 'string');
+    }
+};
+
+subtest 'get_caption_tracks invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('get_caption_tracks', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('get_caption_tracks', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_caption_tracks', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('get_caption_tracks', 'slide_index', 'int');
+    }
+};
+
+subtest 'get_caption_tracks invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('get_caption_tracks', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('get_caption_tracks', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_caption_tracks', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('get_caption_tracks', 'shape_index', 'int');
+    }
+};
+
+subtest 'get_caption_tracks invalid include_data' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $params{ include_data } = $utils->invalidize_param_value('get_caption_tracks', 'include_data', $params{ include_data }, 'boolean');
+    $utils->initialize('get_caption_tracks', 'include_data', $params{ include_data });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_caption_tracks', 'include_data', $params{ include_data }, 'boolean', $@);
+    } else {
+        $utils->assert_no_error('get_caption_tracks', 'include_data', 'boolean');
+    }
+};
+
+subtest 'get_caption_tracks invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $params{ password } = $utils->invalidize_param_value('get_caption_tracks', 'password', $params{ password }, 'string');
+    $utils->initialize('get_caption_tracks', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_caption_tracks', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('get_caption_tracks', 'password', 'string');
+    }
+};
+
+subtest 'get_caption_tracks invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('get_caption_tracks', 'folder', $params{ folder }, 'string');
+    $utils->initialize('get_caption_tracks', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_caption_tracks', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('get_caption_tracks', 'folder', 'string');
+    }
+};
+
+subtest 'get_caption_tracks invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('get_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_caption_tracks', 'storage', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('get_caption_tracks', 'storage', $params{ storage }, 'string');
+    $utils->initialize('get_caption_tracks', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_caption_tracks(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_caption_tracks', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('get_caption_tracks', 'storage', 'string');
     }
 };
 
@@ -18025,7 +18145,7 @@ subtest 'get_slide_header_footer invalid storage' => sub {
 # get_slide_images test
 #
 subtest 'get_slide_images' => sub {
-    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
     $utils->initialize('get_slide_images', '');
     eval {
         my $result = $utils->{testSlidesApi}->get_slide_images(%params);
@@ -18037,7 +18157,7 @@ subtest 'get_slide_images' => sub {
 };
 
 subtest 'get_slide_images invalid name' => sub {
-    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
     $params{ name } = $utils->invalidize_param_value('get_slide_images', 'name', $params{ name }, 'string');
     $utils->initialize('get_slide_images', 'name', $params{ name });
 
@@ -18052,7 +18172,7 @@ subtest 'get_slide_images invalid name' => sub {
 };
 
 subtest 'get_slide_images invalid slide_index' => sub {
-    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
     $params{ slide_index } = $utils->invalidize_param_value('get_slide_images', 'slide_index', $params{ slide_index }, 'int');
     $utils->initialize('get_slide_images', 'slide_index', $params{ slide_index });
 
@@ -18066,8 +18186,38 @@ subtest 'get_slide_images invalid slide_index' => sub {
     }
 };
 
+subtest 'get_slide_images invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('get_slide_images', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('get_slide_images', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_slide_images(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_slide_images', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('get_slide_images', 'shape_index', 'int');
+    }
+};
+
+subtest 'get_slide_images invalid shape_alt_text' => sub {
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    $params{ shape_alt_text } = $utils->invalidize_param_value('get_slide_images', 'shape_alt_text', $params{ shape_alt_text }, 'string');
+    $utils->initialize('get_slide_images', 'shape_alt_text', $params{ shape_alt_text });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->get_slide_images(%params);
+    };
+    if ($@) {
+        $utils->assert_error('get_slide_images', 'shape_alt_text', $params{ shape_alt_text }, 'string', $@);
+    } else {
+        $utils->assert_no_error('get_slide_images', 'shape_alt_text', 'string');
+    }
+};
+
 subtest 'get_slide_images invalid password' => sub {
-    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
     $params{ password } = $utils->invalidize_param_value('get_slide_images', 'password', $params{ password }, 'string');
     $utils->initialize('get_slide_images', 'password', $params{ password });
 
@@ -18082,7 +18232,7 @@ subtest 'get_slide_images invalid password' => sub {
 };
 
 subtest 'get_slide_images invalid folder' => sub {
-    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
     $params{ folder } = $utils->invalidize_param_value('get_slide_images', 'folder', $params{ folder }, 'string');
     $utils->initialize('get_slide_images', 'folder', $params{ folder });
 
@@ -18097,7 +18247,7 @@ subtest 'get_slide_images invalid folder' => sub {
 };
 
 subtest 'get_slide_images invalid storage' => sub {
-    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
+    my %params = ('name' => $utils->get_param_value('get_slide_images', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_slide_images', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_slide_images', 'shape_index', 'int'), 'shape_alt_text' => $utils->get_param_value('get_slide_images', 'shape_alt_text', 'string'), 'password' => $utils->get_param_value('get_slide_images', 'password', 'string'), 'folder' => $utils->get_param_value('get_slide_images', 'folder', 'string'), 'storage' => $utils->get_param_value('get_slide_images', 'storage', 'string'));
     $params{ storage } = $utils->invalidize_param_value('get_slide_images', 'storage', $params{ storage }, 'string');
     $utils->initialize('get_slide_images', 'storage', $params{ storage });
 
@@ -20283,126 +20433,6 @@ subtest 'get_vba_project invalid storage' => sub {
         $utils->assert_error('get_vba_project', 'storage', $params{ storage }, 'string', $@);
     } else {
         $utils->assert_no_error('get_vba_project', 'storage', 'string');
-    }
-};
-
-#
-# get_video_caption_tracks test
-#
-subtest 'get_video_caption_tracks' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $utils->initialize('get_video_caption_tracks', '');
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        fail("get_video_caption_tracks raised an exception: $@");
-    }
-    pass();
-};
-
-subtest 'get_video_caption_tracks invalid name' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $params{ name } = $utils->invalidize_param_value('get_video_caption_tracks', 'name', $params{ name }, 'string');
-    $utils->initialize('get_video_caption_tracks', 'name', $params{ name });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('get_video_caption_tracks', 'name', $params{ name }, 'string', $@);
-    } else {
-        $utils->assert_no_error('get_video_caption_tracks', 'name', 'string');
-    }
-};
-
-subtest 'get_video_caption_tracks invalid slide_index' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $params{ slide_index } = $utils->invalidize_param_value('get_video_caption_tracks', 'slide_index', $params{ slide_index }, 'int');
-    $utils->initialize('get_video_caption_tracks', 'slide_index', $params{ slide_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('get_video_caption_tracks', 'slide_index', $params{ slide_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('get_video_caption_tracks', 'slide_index', 'int');
-    }
-};
-
-subtest 'get_video_caption_tracks invalid shape_index' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $params{ shape_index } = $utils->invalidize_param_value('get_video_caption_tracks', 'shape_index', $params{ shape_index }, 'int');
-    $utils->initialize('get_video_caption_tracks', 'shape_index', $params{ shape_index });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('get_video_caption_tracks', 'shape_index', $params{ shape_index }, 'int', $@);
-    } else {
-        $utils->assert_no_error('get_video_caption_tracks', 'shape_index', 'int');
-    }
-};
-
-subtest 'get_video_caption_tracks invalid include_data' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $params{ include_data } = $utils->invalidize_param_value('get_video_caption_tracks', 'include_data', $params{ include_data }, 'boolean');
-    $utils->initialize('get_video_caption_tracks', 'include_data', $params{ include_data });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('get_video_caption_tracks', 'include_data', $params{ include_data }, 'boolean', $@);
-    } else {
-        $utils->assert_no_error('get_video_caption_tracks', 'include_data', 'boolean');
-    }
-};
-
-subtest 'get_video_caption_tracks invalid password' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $params{ password } = $utils->invalidize_param_value('get_video_caption_tracks', 'password', $params{ password }, 'string');
-    $utils->initialize('get_video_caption_tracks', 'password', $params{ password });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('get_video_caption_tracks', 'password', $params{ password }, 'string', $@);
-    } else {
-        $utils->assert_no_error('get_video_caption_tracks', 'password', 'string');
-    }
-};
-
-subtest 'get_video_caption_tracks invalid folder' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $params{ folder } = $utils->invalidize_param_value('get_video_caption_tracks', 'folder', $params{ folder }, 'string');
-    $utils->initialize('get_video_caption_tracks', 'folder', $params{ folder });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('get_video_caption_tracks', 'folder', $params{ folder }, 'string', $@);
-    } else {
-        $utils->assert_no_error('get_video_caption_tracks', 'folder', 'string');
-    }
-};
-
-subtest 'get_video_caption_tracks invalid storage' => sub {
-    my %params = ('name' => $utils->get_param_value('get_video_caption_tracks', 'name', 'string'), 'slide_index' => $utils->get_param_value('get_video_caption_tracks', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('get_video_caption_tracks', 'shape_index', 'int'), 'include_data' => $utils->get_param_value('get_video_caption_tracks', 'include_data', 'boolean'), 'password' => $utils->get_param_value('get_video_caption_tracks', 'password', 'string'), 'folder' => $utils->get_param_value('get_video_caption_tracks', 'folder', 'string'), 'storage' => $utils->get_param_value('get_video_caption_tracks', 'storage', 'string'));
-    $params{ storage } = $utils->invalidize_param_value('get_video_caption_tracks', 'storage', $params{ storage }, 'string');
-    $utils->initialize('get_video_caption_tracks', 'storage', $params{ storage });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->get_video_caption_tracks(%params);
-    };
-    if ($@) {
-        $utils->assert_error('get_video_caption_tracks', 'storage', $params{ storage }, 'string', $@);
-    } else {
-        $utils->assert_no_error('get_video_caption_tracks', 'storage', 'string');
     }
 };
 
@@ -26467,186 +26497,6 @@ subtest 'set_embedded_font invalid fonts_folder' => sub {
 };
 
 #
-# set_embedded_font_from_request test
-#
-subtest 'set_embedded_font_from_request' => sub {
-    my %params = ('font' => $utils->get_param_value('set_embedded_font_from_request', 'font', 'File'), 'name' => $utils->get_param_value('set_embedded_font_from_request', 'name', 'string'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_font_from_request', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_font_from_request', 'storage', 'string'));
-    $utils->initialize('set_embedded_font_from_request', '');
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request(%params);
-    };
-    if ($@) {
-        fail("set_embedded_font_from_request raised an exception: $@");
-    }
-    pass();
-};
-
-subtest 'set_embedded_font_from_request invalid font' => sub {
-    my %params = ('font' => $utils->get_param_value('set_embedded_font_from_request', 'font', 'File'), 'name' => $utils->get_param_value('set_embedded_font_from_request', 'name', 'string'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_font_from_request', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_font_from_request', 'storage', 'string'));
-    $params{ font } = $utils->invalidize_param_value('set_embedded_font_from_request', 'font', $params{ font }, 'File');
-    $utils->initialize('set_embedded_font_from_request', 'font', $params{ font });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request', 'font', $params{ font }, 'File', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request', 'font', 'File');
-    }
-};
-
-subtest 'set_embedded_font_from_request invalid name' => sub {
-    my %params = ('font' => $utils->get_param_value('set_embedded_font_from_request', 'font', 'File'), 'name' => $utils->get_param_value('set_embedded_font_from_request', 'name', 'string'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_font_from_request', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_font_from_request', 'storage', 'string'));
-    $params{ name } = $utils->invalidize_param_value('set_embedded_font_from_request', 'name', $params{ name }, 'string');
-    $utils->initialize('set_embedded_font_from_request', 'name', $params{ name });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request', 'name', $params{ name }, 'string', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request', 'name', 'string');
-    }
-};
-
-subtest 'set_embedded_font_from_request invalid only_used' => sub {
-    my %params = ('font' => $utils->get_param_value('set_embedded_font_from_request', 'font', 'File'), 'name' => $utils->get_param_value('set_embedded_font_from_request', 'name', 'string'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_font_from_request', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_font_from_request', 'storage', 'string'));
-    $params{ only_used } = $utils->invalidize_param_value('set_embedded_font_from_request', 'only_used', $params{ only_used }, 'boolean');
-    $utils->initialize('set_embedded_font_from_request', 'only_used', $params{ only_used });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request', 'only_used', $params{ only_used }, 'boolean', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request', 'only_used', 'boolean');
-    }
-};
-
-subtest 'set_embedded_font_from_request invalid password' => sub {
-    my %params = ('font' => $utils->get_param_value('set_embedded_font_from_request', 'font', 'File'), 'name' => $utils->get_param_value('set_embedded_font_from_request', 'name', 'string'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_font_from_request', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_font_from_request', 'storage', 'string'));
-    $params{ password } = $utils->invalidize_param_value('set_embedded_font_from_request', 'password', $params{ password }, 'string');
-    $utils->initialize('set_embedded_font_from_request', 'password', $params{ password });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request', 'password', $params{ password }, 'string', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request', 'password', 'string');
-    }
-};
-
-subtest 'set_embedded_font_from_request invalid folder' => sub {
-    my %params = ('font' => $utils->get_param_value('set_embedded_font_from_request', 'font', 'File'), 'name' => $utils->get_param_value('set_embedded_font_from_request', 'name', 'string'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_font_from_request', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_font_from_request', 'storage', 'string'));
-    $params{ folder } = $utils->invalidize_param_value('set_embedded_font_from_request', 'folder', $params{ folder }, 'string');
-    $utils->initialize('set_embedded_font_from_request', 'folder', $params{ folder });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request', 'folder', $params{ folder }, 'string', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request', 'folder', 'string');
-    }
-};
-
-subtest 'set_embedded_font_from_request invalid storage' => sub {
-    my %params = ('font' => $utils->get_param_value('set_embedded_font_from_request', 'font', 'File'), 'name' => $utils->get_param_value('set_embedded_font_from_request', 'name', 'string'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_font_from_request', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_font_from_request', 'storage', 'string'));
-    $params{ storage } = $utils->invalidize_param_value('set_embedded_font_from_request', 'storage', $params{ storage }, 'string');
-    $utils->initialize('set_embedded_font_from_request', 'storage', $params{ storage });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request', 'storage', $params{ storage }, 'string', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request', 'storage', 'string');
-    }
-};
-
-#
-# set_embedded_font_from_request_online test
-#
-subtest 'set_embedded_font_from_request_online' => sub {
-    my %params = ('document' => $utils->get_param_value('set_embedded_font_from_request_online', 'document', 'File'), 'font' => $utils->get_param_value('set_embedded_font_from_request_online', 'font', 'File'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request_online', 'password', 'string'));
-    $utils->initialize('set_embedded_font_from_request_online', '');
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request_online(%params);
-    };
-    if ($@) {
-        fail("set_embedded_font_from_request_online raised an exception: $@");
-    }
-    pass();
-};
-
-subtest 'set_embedded_font_from_request_online invalid document' => sub {
-    my %params = ('document' => $utils->get_param_value('set_embedded_font_from_request_online', 'document', 'File'), 'font' => $utils->get_param_value('set_embedded_font_from_request_online', 'font', 'File'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request_online', 'password', 'string'));
-    $params{ document } = $utils->invalidize_param_value('set_embedded_font_from_request_online', 'document', $params{ document }, 'File');
-    $utils->initialize('set_embedded_font_from_request_online', 'document', $params{ document });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request_online(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request_online', 'document', $params{ document }, 'File', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request_online', 'document', 'File');
-    }
-};
-
-subtest 'set_embedded_font_from_request_online invalid font' => sub {
-    my %params = ('document' => $utils->get_param_value('set_embedded_font_from_request_online', 'document', 'File'), 'font' => $utils->get_param_value('set_embedded_font_from_request_online', 'font', 'File'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request_online', 'password', 'string'));
-    $params{ font } = $utils->invalidize_param_value('set_embedded_font_from_request_online', 'font', $params{ font }, 'File');
-    $utils->initialize('set_embedded_font_from_request_online', 'font', $params{ font });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request_online(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request_online', 'font', $params{ font }, 'File', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request_online', 'font', 'File');
-    }
-};
-
-subtest 'set_embedded_font_from_request_online invalid only_used' => sub {
-    my %params = ('document' => $utils->get_param_value('set_embedded_font_from_request_online', 'document', 'File'), 'font' => $utils->get_param_value('set_embedded_font_from_request_online', 'font', 'File'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request_online', 'password', 'string'));
-    $params{ only_used } = $utils->invalidize_param_value('set_embedded_font_from_request_online', 'only_used', $params{ only_used }, 'boolean');
-    $utils->initialize('set_embedded_font_from_request_online', 'only_used', $params{ only_used });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request_online(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request_online', 'only_used', $params{ only_used }, 'boolean', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request_online', 'only_used', 'boolean');
-    }
-};
-
-subtest 'set_embedded_font_from_request_online invalid password' => sub {
-    my %params = ('document' => $utils->get_param_value('set_embedded_font_from_request_online', 'document', 'File'), 'font' => $utils->get_param_value('set_embedded_font_from_request_online', 'font', 'File'), 'only_used' => $utils->get_param_value('set_embedded_font_from_request_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_font_from_request_online', 'password', 'string'));
-    $params{ password } = $utils->invalidize_param_value('set_embedded_font_from_request_online', 'password', $params{ password }, 'string');
-    $utils->initialize('set_embedded_font_from_request_online', 'password', $params{ password });
-
-    eval {
-        my $result = $utils->{testSlidesApi}->set_embedded_font_from_request_online(%params);
-    };
-    if ($@) {
-        $utils->assert_error('set_embedded_font_from_request_online', 'password', $params{ password }, 'string', $@);
-    } else {
-        $utils->assert_no_error('set_embedded_font_from_request_online', 'password', 'string');
-    }
-};
-
-#
 # set_embedded_font_online test
 #
 subtest 'set_embedded_font_online' => sub {
@@ -26733,6 +26583,216 @@ subtest 'set_embedded_font_online invalid fonts_folder' => sub {
         $utils->assert_error('set_embedded_font_online', 'fonts_folder', $params{ fonts_folder }, 'string', $@);
     } else {
         $utils->assert_no_error('set_embedded_font_online', 'fonts_folder', 'string');
+    }
+};
+
+#
+# set_embedded_fonts test
+#
+subtest 'set_embedded_fonts' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $utils->initialize('set_embedded_fonts', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        fail("set_embedded_fonts raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'set_embedded_fonts invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $params{ name } = $utils->invalidize_param_value('set_embedded_fonts', 'name', $params{ name }, 'string');
+    $utils->initialize('set_embedded_fonts', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts', 'name', 'string');
+    }
+};
+
+subtest 'set_embedded_fonts invalid fonts' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $params{ fonts } = $utils->invalidize_param_value('set_embedded_fonts', 'fonts', $params{ fonts }, 'ARRAY[string]');
+    $utils->initialize('set_embedded_fonts', 'fonts', $params{ fonts });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts', 'fonts', $params{ fonts }, 'ARRAY[string]', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts', 'fonts', 'ARRAY[string]');
+    }
+};
+
+subtest 'set_embedded_fonts invalid font_names' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $params{ font_names } = $utils->invalidize_param_value('set_embedded_fonts', 'font_names', $params{ font_names }, 'string[]');
+    $utils->initialize('set_embedded_fonts', 'font_names', $params{ font_names });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts', 'font_names', $params{ font_names }, 'string[]', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts', 'font_names', 'string[]');
+    }
+};
+
+subtest 'set_embedded_fonts invalid only_used' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $params{ only_used } = $utils->invalidize_param_value('set_embedded_fonts', 'only_used', $params{ only_used }, 'boolean');
+    $utils->initialize('set_embedded_fonts', 'only_used', $params{ only_used });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts', 'only_used', $params{ only_used }, 'boolean', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts', 'only_used', 'boolean');
+    }
+};
+
+subtest 'set_embedded_fonts invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $params{ password } = $utils->invalidize_param_value('set_embedded_fonts', 'password', $params{ password }, 'string');
+    $utils->initialize('set_embedded_fonts', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts', 'password', 'string');
+    }
+};
+
+subtest 'set_embedded_fonts invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('set_embedded_fonts', 'folder', $params{ folder }, 'string');
+    $utils->initialize('set_embedded_fonts', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts', 'folder', 'string');
+    }
+};
+
+subtest 'set_embedded_fonts invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('set_embedded_fonts', 'name', 'string'), 'fonts' => $utils->get_param_value('set_embedded_fonts', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts', 'password', 'string'), 'folder' => $utils->get_param_value('set_embedded_fonts', 'folder', 'string'), 'storage' => $utils->get_param_value('set_embedded_fonts', 'storage', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('set_embedded_fonts', 'storage', $params{ storage }, 'string');
+    $utils->initialize('set_embedded_fonts', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts', 'storage', 'string');
+    }
+};
+
+#
+# set_embedded_fonts_online test
+#
+subtest 'set_embedded_fonts_online' => sub {
+    my %params = ('document' => $utils->get_param_value('set_embedded_fonts_online', 'document', 'File'), 'fonts' => $utils->get_param_value('set_embedded_fonts_online', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts_online', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts_online', 'password', 'string'));
+    $utils->initialize('set_embedded_fonts_online', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts_online(%params);
+    };
+    if ($@) {
+        fail("set_embedded_fonts_online raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'set_embedded_fonts_online invalid document' => sub {
+    my %params = ('document' => $utils->get_param_value('set_embedded_fonts_online', 'document', 'File'), 'fonts' => $utils->get_param_value('set_embedded_fonts_online', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts_online', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts_online', 'password', 'string'));
+    $params{ document } = $utils->invalidize_param_value('set_embedded_fonts_online', 'document', $params{ document }, 'File');
+    $utils->initialize('set_embedded_fonts_online', 'document', $params{ document });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts_online(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts_online', 'document', $params{ document }, 'File', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts_online', 'document', 'File');
+    }
+};
+
+subtest 'set_embedded_fonts_online invalid fonts' => sub {
+    my %params = ('document' => $utils->get_param_value('set_embedded_fonts_online', 'document', 'File'), 'fonts' => $utils->get_param_value('set_embedded_fonts_online', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts_online', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts_online', 'password', 'string'));
+    $params{ fonts } = $utils->invalidize_param_value('set_embedded_fonts_online', 'fonts', $params{ fonts }, 'ARRAY[string]');
+    $utils->initialize('set_embedded_fonts_online', 'fonts', $params{ fonts });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts_online(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts_online', 'fonts', $params{ fonts }, 'ARRAY[string]', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts_online', 'fonts', 'ARRAY[string]');
+    }
+};
+
+subtest 'set_embedded_fonts_online invalid font_names' => sub {
+    my %params = ('document' => $utils->get_param_value('set_embedded_fonts_online', 'document', 'File'), 'fonts' => $utils->get_param_value('set_embedded_fonts_online', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts_online', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts_online', 'password', 'string'));
+    $params{ font_names } = $utils->invalidize_param_value('set_embedded_fonts_online', 'font_names', $params{ font_names }, 'string[]');
+    $utils->initialize('set_embedded_fonts_online', 'font_names', $params{ font_names });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts_online(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts_online', 'font_names', $params{ font_names }, 'string[]', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts_online', 'font_names', 'string[]');
+    }
+};
+
+subtest 'set_embedded_fonts_online invalid only_used' => sub {
+    my %params = ('document' => $utils->get_param_value('set_embedded_fonts_online', 'document', 'File'), 'fonts' => $utils->get_param_value('set_embedded_fonts_online', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts_online', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts_online', 'password', 'string'));
+    $params{ only_used } = $utils->invalidize_param_value('set_embedded_fonts_online', 'only_used', $params{ only_used }, 'boolean');
+    $utils->initialize('set_embedded_fonts_online', 'only_used', $params{ only_used });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts_online(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts_online', 'only_used', $params{ only_used }, 'boolean', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts_online', 'only_used', 'boolean');
+    }
+};
+
+subtest 'set_embedded_fonts_online invalid password' => sub {
+    my %params = ('document' => $utils->get_param_value('set_embedded_fonts_online', 'document', 'File'), 'fonts' => $utils->get_param_value('set_embedded_fonts_online', 'fonts', 'ARRAY[string]'), 'font_names' => $utils->get_param_value('set_embedded_fonts_online', 'font_names', 'string[]'), 'only_used' => $utils->get_param_value('set_embedded_fonts_online', 'only_used', 'boolean'), 'password' => $utils->get_param_value('set_embedded_fonts_online', 'password', 'string'));
+    $params{ password } = $utils->invalidize_param_value('set_embedded_fonts_online', 'password', $params{ password }, 'string');
+    $utils->initialize('set_embedded_fonts_online', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->set_embedded_fonts_online(%params);
+    };
+    if ($@) {
+        $utils->assert_error('set_embedded_fonts_online', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('set_embedded_fonts_online', 'password', 'string');
     }
 };
 

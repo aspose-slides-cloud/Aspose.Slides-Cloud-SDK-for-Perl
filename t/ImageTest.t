@@ -51,6 +51,16 @@ subtest 'images get' => sub {
         $params{slide_index} = 1;
         my $slide_result = $utils->{testSlidesApi}->get_slide_images(%params);
         ok(scalar @{$slide_result->{list}} < @{$presentation_result->{list}});
+
+        $params{slide_index} = 2;
+        $params{shape_index} = 2;
+        my $shape_result = $utils->{testSlidesApi}->get_slide_images(%params);
+        ok(scalar @{$shape_result->{list}} == 1);
+
+        undef $params{shape_index};
+        $params{alt_text} = "title";
+        my $alt_result = $utils->{testSlidesApi}->get_slide_images(%params);
+        ok(scalar @{$alt_result->{list}} == 0);
     };
     if ($@) {
         fail("get_presentation_images raised an exception: $@");
