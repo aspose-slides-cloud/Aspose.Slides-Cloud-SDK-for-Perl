@@ -3640,7 +3640,7 @@ subtest 'create_section invalid storage' => sub {
 # create_shape test
 #
 subtest 'create_shape' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $utils->initialize('create_shape', '');
     eval {
         my $result = $utils->{testSlidesApi}->create_shape(%params);
@@ -3652,7 +3652,7 @@ subtest 'create_shape' => sub {
 };
 
 subtest 'create_shape invalid name' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ name } = $utils->invalidize_param_value('create_shape', 'name', $params{ name }, 'string');
     $utils->initialize('create_shape', 'name', $params{ name });
 
@@ -3667,7 +3667,7 @@ subtest 'create_shape invalid name' => sub {
 };
 
 subtest 'create_shape invalid slide_index' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ slide_index } = $utils->invalidize_param_value('create_shape', 'slide_index', $params{ slide_index }, 'int');
     $utils->initialize('create_shape', 'slide_index', $params{ slide_index });
 
@@ -3682,7 +3682,7 @@ subtest 'create_shape invalid slide_index' => sub {
 };
 
 subtest 'create_shape invalid dto' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ dto } = $utils->invalidize_param_value('create_shape', 'dto', $params{ dto }, 'ShapeBase');
     $utils->initialize('create_shape', 'dto', $params{ dto });
 
@@ -3697,7 +3697,7 @@ subtest 'create_shape invalid dto' => sub {
 };
 
 subtest 'create_shape invalid shape_to_clone' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ shape_to_clone } = $utils->invalidize_param_value('create_shape', 'shape_to_clone', $params{ shape_to_clone }, 'int');
     $utils->initialize('create_shape', 'shape_to_clone', $params{ shape_to_clone });
 
@@ -3711,8 +3711,23 @@ subtest 'create_shape invalid shape_to_clone' => sub {
     }
 };
 
+subtest 'create_shape invalid clone_from_slide' => sub {
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    $params{ clone_from_slide } = $utils->invalidize_param_value('create_shape', 'clone_from_slide', $params{ clone_from_slide }, 'int');
+    $utils->initialize('create_shape', 'clone_from_slide', $params{ clone_from_slide });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_shape(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_shape', 'clone_from_slide', $params{ clone_from_slide }, 'int', $@);
+    } else {
+        $utils->assert_no_error('create_shape', 'clone_from_slide', 'int');
+    }
+};
+
 subtest 'create_shape invalid position' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ position } = $utils->invalidize_param_value('create_shape', 'position', $params{ position }, 'int');
     $utils->initialize('create_shape', 'position', $params{ position });
 
@@ -3727,7 +3742,7 @@ subtest 'create_shape invalid position' => sub {
 };
 
 subtest 'create_shape invalid password' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ password } = $utils->invalidize_param_value('create_shape', 'password', $params{ password }, 'string');
     $utils->initialize('create_shape', 'password', $params{ password });
 
@@ -3742,7 +3757,7 @@ subtest 'create_shape invalid password' => sub {
 };
 
 subtest 'create_shape invalid folder' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ folder } = $utils->invalidize_param_value('create_shape', 'folder', $params{ folder }, 'string');
     $utils->initialize('create_shape', 'folder', $params{ folder });
 
@@ -3757,7 +3772,7 @@ subtest 'create_shape invalid folder' => sub {
 };
 
 subtest 'create_shape invalid storage' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ storage } = $utils->invalidize_param_value('create_shape', 'storage', $params{ storage }, 'string');
     $utils->initialize('create_shape', 'storage', $params{ storage });
 
@@ -3772,7 +3787,7 @@ subtest 'create_shape invalid storage' => sub {
 };
 
 subtest 'create_shape invalid sub_shape' => sub {
-    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_shape', 'slide_index', 'int'), 'dto' => $utils->get_param_value('create_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_shape', 'sub_shape', 'string'));
     $params{ sub_shape } = $utils->invalidize_param_value('create_shape', 'sub_shape', $params{ sub_shape }, 'string');
     $utils->initialize('create_shape', 'sub_shape', $params{ sub_shape });
 
@@ -4765,7 +4780,7 @@ subtest 'create_special_slide_portion invalid sub_shape' => sub {
 # create_special_slide_shape test
 #
 subtest 'create_special_slide_shape' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $utils->initialize('create_special_slide_shape', '');
     eval {
         my $result = $utils->{testSlidesApi}->create_special_slide_shape(%params);
@@ -4777,7 +4792,7 @@ subtest 'create_special_slide_shape' => sub {
 };
 
 subtest 'create_special_slide_shape invalid name' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ name } = $utils->invalidize_param_value('create_special_slide_shape', 'name', $params{ name }, 'string');
     $utils->initialize('create_special_slide_shape', 'name', $params{ name });
 
@@ -4792,7 +4807,7 @@ subtest 'create_special_slide_shape invalid name' => sub {
 };
 
 subtest 'create_special_slide_shape invalid slide_index' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ slide_index } = $utils->invalidize_param_value('create_special_slide_shape', 'slide_index', $params{ slide_index }, 'int');
     $utils->initialize('create_special_slide_shape', 'slide_index', $params{ slide_index });
 
@@ -4807,7 +4822,7 @@ subtest 'create_special_slide_shape invalid slide_index' => sub {
 };
 
 subtest 'create_special_slide_shape invalid slide_type' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ slide_type } = $utils->invalidize_param_value('create_special_slide_shape', 'slide_type', $params{ slide_type }, 'string');
     $utils->initialize('create_special_slide_shape', 'slide_type', $params{ slide_type });
 
@@ -4822,7 +4837,7 @@ subtest 'create_special_slide_shape invalid slide_type' => sub {
 };
 
 subtest 'create_special_slide_shape invalid dto' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ dto } = $utils->invalidize_param_value('create_special_slide_shape', 'dto', $params{ dto }, 'ShapeBase');
     $utils->initialize('create_special_slide_shape', 'dto', $params{ dto });
 
@@ -4837,7 +4852,7 @@ subtest 'create_special_slide_shape invalid dto' => sub {
 };
 
 subtest 'create_special_slide_shape invalid shape_to_clone' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ shape_to_clone } = $utils->invalidize_param_value('create_special_slide_shape', 'shape_to_clone', $params{ shape_to_clone }, 'int');
     $utils->initialize('create_special_slide_shape', 'shape_to_clone', $params{ shape_to_clone });
 
@@ -4851,8 +4866,23 @@ subtest 'create_special_slide_shape invalid shape_to_clone' => sub {
     }
 };
 
+subtest 'create_special_slide_shape invalid clone_from_slide' => sub {
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    $params{ clone_from_slide } = $utils->invalidize_param_value('create_special_slide_shape', 'clone_from_slide', $params{ clone_from_slide }, 'int');
+    $utils->initialize('create_special_slide_shape', 'clone_from_slide', $params{ clone_from_slide });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->create_special_slide_shape(%params);
+    };
+    if ($@) {
+        $utils->assert_error('create_special_slide_shape', 'clone_from_slide', $params{ clone_from_slide }, 'int', $@);
+    } else {
+        $utils->assert_no_error('create_special_slide_shape', 'clone_from_slide', 'int');
+    }
+};
+
 subtest 'create_special_slide_shape invalid position' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ position } = $utils->invalidize_param_value('create_special_slide_shape', 'position', $params{ position }, 'int');
     $utils->initialize('create_special_slide_shape', 'position', $params{ position });
 
@@ -4867,7 +4897,7 @@ subtest 'create_special_slide_shape invalid position' => sub {
 };
 
 subtest 'create_special_slide_shape invalid password' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ password } = $utils->invalidize_param_value('create_special_slide_shape', 'password', $params{ password }, 'string');
     $utils->initialize('create_special_slide_shape', 'password', $params{ password });
 
@@ -4882,7 +4912,7 @@ subtest 'create_special_slide_shape invalid password' => sub {
 };
 
 subtest 'create_special_slide_shape invalid folder' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ folder } = $utils->invalidize_param_value('create_special_slide_shape', 'folder', $params{ folder }, 'string');
     $utils->initialize('create_special_slide_shape', 'folder', $params{ folder });
 
@@ -4897,7 +4927,7 @@ subtest 'create_special_slide_shape invalid folder' => sub {
 };
 
 subtest 'create_special_slide_shape invalid storage' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ storage } = $utils->invalidize_param_value('create_special_slide_shape', 'storage', $params{ storage }, 'string');
     $utils->initialize('create_special_slide_shape', 'storage', $params{ storage });
 
@@ -4912,7 +4942,7 @@ subtest 'create_special_slide_shape invalid storage' => sub {
 };
 
 subtest 'create_special_slide_shape invalid sub_shape' => sub {
-    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
+    my %params = ('name' => $utils->get_param_value('create_special_slide_shape', 'name', 'string'), 'slide_index' => $utils->get_param_value('create_special_slide_shape', 'slide_index', 'int'), 'slide_type' => $utils->get_param_value('create_special_slide_shape', 'slide_type', 'string'), 'dto' => $utils->get_param_value('create_special_slide_shape', 'dto', 'ShapeBase'), 'shape_to_clone' => $utils->get_param_value('create_special_slide_shape', 'shape_to_clone', 'int'), 'clone_from_slide' => $utils->get_param_value('create_special_slide_shape', 'clone_from_slide', 'int'), 'position' => $utils->get_param_value('create_special_slide_shape', 'position', 'int'), 'password' => $utils->get_param_value('create_special_slide_shape', 'password', 'string'), 'folder' => $utils->get_param_value('create_special_slide_shape', 'folder', 'string'), 'storage' => $utils->get_param_value('create_special_slide_shape', 'storage', 'string'), 'sub_shape' => $utils->get_param_value('create_special_slide_shape', 'sub_shape', 'string'));
     $params{ sub_shape } = $utils->invalidize_param_value('create_special_slide_shape', 'sub_shape', $params{ sub_shape }, 'string');
     $utils->initialize('create_special_slide_shape', 'sub_shape', $params{ sub_shape });
 
@@ -21082,6 +21112,231 @@ subtest 'highlight_shape_text invalid storage' => sub {
 };
 
 #
+# import_chart_from_workbook test
+#
+subtest 'import_chart_from_workbook' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $utils->initialize('import_chart_from_workbook', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        fail("import_chart_from_workbook raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'import_chart_from_workbook invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ name } = $utils->invalidize_param_value('import_chart_from_workbook', 'name', $params{ name }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'name', 'string');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('import_chart_from_workbook', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('import_chart_from_workbook', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'slide_index', 'int');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid worksheet_name' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ worksheet_name } = $utils->invalidize_param_value('import_chart_from_workbook', 'worksheet_name', $params{ worksheet_name }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'worksheet_name', $params{ worksheet_name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'worksheet_name', $params{ worksheet_name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'worksheet_name', 'string');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid document' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ document } = $utils->invalidize_param_value('import_chart_from_workbook', 'document', $params{ document }, 'File');
+    $utils->initialize('import_chart_from_workbook', 'document', $params{ document });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'document', $params{ document }, 'File', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'document', 'File');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid chart_name' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ chart_name } = $utils->invalidize_param_value('import_chart_from_workbook', 'chart_name', $params{ chart_name }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'chart_name', $params{ chart_name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'chart_name', $params{ chart_name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'chart_name', 'string');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid chart_index' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ chart_index } = $utils->invalidize_param_value('import_chart_from_workbook', 'chart_index', $params{ chart_index }, 'int');
+    $utils->initialize('import_chart_from_workbook', 'chart_index', $params{ chart_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'chart_index', $params{ chart_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'chart_index', 'int');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid x' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ x } = $utils->invalidize_param_value('import_chart_from_workbook', 'x', $params{ x }, 'double');
+    $utils->initialize('import_chart_from_workbook', 'x', $params{ x });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'x', $params{ x }, 'double', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'x', 'double');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid y' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ y } = $utils->invalidize_param_value('import_chart_from_workbook', 'y', $params{ y }, 'double');
+    $utils->initialize('import_chart_from_workbook', 'y', $params{ y });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'y', $params{ y }, 'double', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'y', 'double');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid embed_all_workbook' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ embed_all_workbook } = $utils->invalidize_param_value('import_chart_from_workbook', 'embed_all_workbook', $params{ embed_all_workbook }, 'boolean');
+    $utils->initialize('import_chart_from_workbook', 'embed_all_workbook', $params{ embed_all_workbook });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'embed_all_workbook', $params{ embed_all_workbook }, 'boolean', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'embed_all_workbook', 'boolean');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid workbook_path' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ workbook_path } = $utils->invalidize_param_value('import_chart_from_workbook', 'workbook_path', $params{ workbook_path }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'workbook_path', $params{ workbook_path });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'workbook_path', $params{ workbook_path }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'workbook_path', 'string');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid workbook_storage' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ workbook_storage } = $utils->invalidize_param_value('import_chart_from_workbook', 'workbook_storage', $params{ workbook_storage }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'workbook_storage', $params{ workbook_storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'workbook_storage', $params{ workbook_storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'workbook_storage', 'string');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ password } = $utils->invalidize_param_value('import_chart_from_workbook', 'password', $params{ password }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'password', 'string');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('import_chart_from_workbook', 'folder', $params{ folder }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'folder', 'string');
+    }
+};
+
+subtest 'import_chart_from_workbook invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('import_chart_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_chart_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_chart_from_workbook', 'worksheet_name', 'string'), 'document' => $utils->get_param_value('import_chart_from_workbook', 'document', 'File'), 'chart_name' => $utils->get_param_value('import_chart_from_workbook', 'chart_name', 'string'), 'chart_index' => $utils->get_param_value('import_chart_from_workbook', 'chart_index', 'int'), 'x' => $utils->get_param_value('import_chart_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_chart_from_workbook', 'y', 'double'), 'embed_all_workbook' => $utils->get_param_value('import_chart_from_workbook', 'embed_all_workbook', 'boolean'), 'workbook_path' => $utils->get_param_value('import_chart_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_chart_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_chart_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_chart_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_chart_from_workbook', 'storage', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('import_chart_from_workbook', 'storage', $params{ storage }, 'string');
+    $utils->initialize('import_chart_from_workbook', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_chart_from_workbook', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_chart_from_workbook', 'storage', 'string');
+    }
+};
+
+#
 # import_from_html test
 #
 subtest 'import_from_html' => sub {
@@ -21498,6 +21753,201 @@ subtest 'import_shapes_from_svg invalid storage' => sub {
         $utils->assert_error('import_shapes_from_svg', 'storage', $params{ storage }, 'string', $@);
     } else {
         $utils->assert_no_error('import_shapes_from_svg', 'storage', 'string');
+    }
+};
+
+#
+# import_table_from_workbook test
+#
+subtest 'import_table_from_workbook' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $utils->initialize('import_table_from_workbook', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        fail("import_table_from_workbook raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'import_table_from_workbook invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ name } = $utils->invalidize_param_value('import_table_from_workbook', 'name', $params{ name }, 'string');
+    $utils->initialize('import_table_from_workbook', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'name', 'string');
+    }
+};
+
+subtest 'import_table_from_workbook invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('import_table_from_workbook', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('import_table_from_workbook', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'slide_index', 'int');
+    }
+};
+
+subtest 'import_table_from_workbook invalid worksheet_name' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ worksheet_name } = $utils->invalidize_param_value('import_table_from_workbook', 'worksheet_name', $params{ worksheet_name }, 'string');
+    $utils->initialize('import_table_from_workbook', 'worksheet_name', $params{ worksheet_name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'worksheet_name', $params{ worksheet_name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'worksheet_name', 'string');
+    }
+};
+
+subtest 'import_table_from_workbook invalid cell_range' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ cell_range } = $utils->invalidize_param_value('import_table_from_workbook', 'cell_range', $params{ cell_range }, 'string');
+    $utils->initialize('import_table_from_workbook', 'cell_range', $params{ cell_range });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'cell_range', $params{ cell_range }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'cell_range', 'string');
+    }
+};
+
+subtest 'import_table_from_workbook invalid document' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ document } = $utils->invalidize_param_value('import_table_from_workbook', 'document', $params{ document }, 'File');
+    $utils->initialize('import_table_from_workbook', 'document', $params{ document });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'document', $params{ document }, 'File', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'document', 'File');
+    }
+};
+
+subtest 'import_table_from_workbook invalid x' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ x } = $utils->invalidize_param_value('import_table_from_workbook', 'x', $params{ x }, 'double');
+    $utils->initialize('import_table_from_workbook', 'x', $params{ x });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'x', $params{ x }, 'double', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'x', 'double');
+    }
+};
+
+subtest 'import_table_from_workbook invalid y' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ y } = $utils->invalidize_param_value('import_table_from_workbook', 'y', $params{ y }, 'double');
+    $utils->initialize('import_table_from_workbook', 'y', $params{ y });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'y', $params{ y }, 'double', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'y', 'double');
+    }
+};
+
+subtest 'import_table_from_workbook invalid workbook_path' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ workbook_path } = $utils->invalidize_param_value('import_table_from_workbook', 'workbook_path', $params{ workbook_path }, 'string');
+    $utils->initialize('import_table_from_workbook', 'workbook_path', $params{ workbook_path });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'workbook_path', $params{ workbook_path }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'workbook_path', 'string');
+    }
+};
+
+subtest 'import_table_from_workbook invalid workbook_storage' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ workbook_storage } = $utils->invalidize_param_value('import_table_from_workbook', 'workbook_storage', $params{ workbook_storage }, 'string');
+    $utils->initialize('import_table_from_workbook', 'workbook_storage', $params{ workbook_storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'workbook_storage', $params{ workbook_storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'workbook_storage', 'string');
+    }
+};
+
+subtest 'import_table_from_workbook invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ password } = $utils->invalidize_param_value('import_table_from_workbook', 'password', $params{ password }, 'string');
+    $utils->initialize('import_table_from_workbook', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'password', 'string');
+    }
+};
+
+subtest 'import_table_from_workbook invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('import_table_from_workbook', 'folder', $params{ folder }, 'string');
+    $utils->initialize('import_table_from_workbook', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'folder', 'string');
+    }
+};
+
+subtest 'import_table_from_workbook invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('import_table_from_workbook', 'name', 'string'), 'slide_index' => $utils->get_param_value('import_table_from_workbook', 'slide_index', 'int'), 'worksheet_name' => $utils->get_param_value('import_table_from_workbook', 'worksheet_name', 'string'), 'cell_range' => $utils->get_param_value('import_table_from_workbook', 'cell_range', 'string'), 'document' => $utils->get_param_value('import_table_from_workbook', 'document', 'File'), 'x' => $utils->get_param_value('import_table_from_workbook', 'x', 'double'), 'y' => $utils->get_param_value('import_table_from_workbook', 'y', 'double'), 'workbook_path' => $utils->get_param_value('import_table_from_workbook', 'workbook_path', 'string'), 'workbook_storage' => $utils->get_param_value('import_table_from_workbook', 'workbook_storage', 'string'), 'password' => $utils->get_param_value('import_table_from_workbook', 'password', 'string'), 'folder' => $utils->get_param_value('import_table_from_workbook', 'folder', 'string'), 'storage' => $utils->get_param_value('import_table_from_workbook', 'storage', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('import_table_from_workbook', 'storage', $params{ storage }, 'string');
+    $utils->initialize('import_table_from_workbook', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+    };
+    if ($@) {
+        $utils->assert_error('import_table_from_workbook', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('import_table_from_workbook', 'storage', 'string');
     }
 };
 

@@ -229,4 +229,69 @@ subtest 'delete picture cropped areas wrong shape type' => sub {
     pass();
 };
 
+subtest 'image download quality' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my %params = ('name' => "test.pptx", 'index' => 1, 'format' => 'Jpeg', 'password' => "password", 'folder' => "TempSlidesSDK", 'quality' => 100);
+        my $image_good = $utils->{testSlidesApi}->download_image(%params);
+
+        $params{quality} = 50;
+        my $image_bad = $utils->{testSlidesApi}->download_image(%params);
+
+        ok(length($image_good) > length($image_bad));
+    };
+    if ($@) {
+        fail("download_image raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'image download quality useless' => sub {
+    eval {
+        my $source = read_file("TestData/test.pptx", { binmode => ':raw' });
+        my %params = ('document' => $source, 'index' => 1, 'format' => 'Png', 'password' => "password", 'quality' => 100);
+        my $image_good = $utils->{testSlidesApi}->download_image_online(%params);
+
+        $params{quality} = 50;
+        my $image_bad = $utils->{testSlidesApi}->download_image_online(%params);
+
+        is(length($image_good), length($image_bad));
+    };
+    if ($@) {
+        fail("download_image_online raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'replace image' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $image = read_file("TestData/watermark.png", { binmode => ':raw' });
+        my %params = ('name' => "test.pptx", 'image_index' => 1, 'image' => $image, 'password' => "password", 'folder' => "TempSlidesSDK");
+        $utils->{testSlidesApi}->replace_image(%params);
+    };
+    if ($@) {
+        fail("replace_image raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'replace image request' => sub {
+    eval {
+        my $source = read_file("TestData/test.pptx", { binmode => ':raw' });
+        my $image = read_file("TestData/watermark.png", { binmode => ':raw' });
+        my %params = ('document' => $source, 'image_index' => 1, 'image' => $image, 'password' => "password");
+        my $response = $utils->{testSlidesApi}->replace_image_online(%params);
+        ok(length($response) > 0);
+    };
+    if ($@) {
+        fail("replace_image_online raised an exception: $@");
+    }
+    pass();
+};
+
 done_testing;

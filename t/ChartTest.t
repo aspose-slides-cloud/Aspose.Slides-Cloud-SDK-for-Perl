@@ -881,4 +881,53 @@ subtest 'chart formulas' => sub {
     pass();
 };
 
+subtest 'import chart from workbook' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $source = read_file("TestData/oleObject.xlsx", { binmode => ':raw' });
+        my %params = (
+            'name' => "test.pptx",
+            'slide_index' => 3,
+            'worksheet_name' => "Sheet1",
+            'document' => $source,
+            'chart_index' => 1,
+            'password' => "password",
+            'folder' => "TempSlidesSDK");
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+        is($result->{type}, "Chart");
+    };
+    if ($@) {
+        fail("import_chart_from_workbook raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'import chart from workbook by path' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $source = read_file("TestData/oleObject.xlsx", { binmode => ':raw' });
+        my %upload_params = ('path' => "TempSlidesSDK/oleObject.xlsx", 'file' => $source);
+        $utils->{testSlidesApi}->upload_file(%upload_params);
+
+        my %params = (
+            'name' => "test.pptx",
+            'slide_index' => 3,
+            'worksheet_name' => "Sheet1",
+            'chart_index' => 1,
+            'workbook_path' => "TempSlidesSDK/oleObject.xlsx",
+            'password' => "password",
+            'folder' => "TempSlidesSDK");
+        my $result = $utils->{testSlidesApi}->import_chart_from_workbook(%params);
+        is($result->{type}, "Chart");
+    };
+    if ($@) {
+        fail("import_chart_from_workbook raised an exception: $@");
+    }
+    pass();
+};
+
 done_testing;

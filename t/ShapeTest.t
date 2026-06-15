@@ -64,7 +64,7 @@ use MIME::Base64 qw(encode_base64);
 
 my $utils = AsposeSlidesCloud::TestUtils->new();
 
-subtest 'get_shapes' => sub {
+subtest 'get shapes' => sub {
     eval {
       my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
       $utils->{testSlidesApi}->copy_file(%copy_params);
@@ -79,7 +79,7 @@ subtest 'get_shapes' => sub {
     pass();
 };
 
-subtest 'get_shapes by type' => sub {
+subtest 'get shapes by type' => sub {
     eval {
       my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
       $utils->{testSlidesApi}->copy_file(%copy_params);
@@ -640,7 +640,7 @@ subtest 'connector empty' => sub {
     pass();
 };
 
-subtest 'create sub_shape' => sub {
+subtest 'create sub-shape' => sub {
     eval {
       my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
       $utils->{testSlidesApi}->copy_file(%copy_params);
@@ -842,7 +842,7 @@ subtest 'delete shape' => sub {
     pass();
 };
 
-subtest 'delete sub_shape' => sub {
+subtest 'delete sub-shape' => sub {
     eval {
       my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
       $utils->{testSlidesApi}->copy_file(%copy_params);
@@ -1323,6 +1323,63 @@ subtest 'download shape from DTO' => sub {
     };
     if ($@) {
         fail("download_shape_from_dto raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'smart art node default paragraph format' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my %get_params = (
+            'name' => "test.pptx",
+            'slide_index' => 7,
+            'shape_index' => 1,
+            'password' => "password",
+            'folder' => "TempSlidesSDK");
+        my $existing = $utils->{testSlidesApi}->get_shape(%get_params);
+        my $paragraph_format = AsposeSlidesCloud::Object::ParagraphFormat->new();
+        my $bullet_fill = AsposeSlidesCloud::Object::SolidFill->new();
+        $bullet_fill->{color} = "#FFFF0000";
+        $paragraph_format->{bullet_fill_format} = $bullet_fill;
+        $existing->{nodes}[0]{default_paragraph_format} = $paragraph_format;
+
+        my %update_params = (
+            'name' => "test.pptx",
+            'slide_index' => 7,
+            'shape_index' => 1,
+            'dto' => $existing,
+            'password' => "password",
+            'folder' => "TempSlidesSDK");
+        my $updated = $utils->{testSlidesApi}->update_shape(%update_params);
+        ok(defined $updated->{nodes}[0]{default_paragraph_format});
+        is($updated->{nodes}[0]{default_paragraph_format}{bullet_fill_format}{type}, "Solid");
+        is($updated->{nodes}[0]{default_paragraph_format}{bullet_fill_format}{color}, "#FFFF0000");
+    };
+    if ($@) {
+        fail("smart_art_node_default_paragraph_format raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'shape clone from slide' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my %params = (
+            'name' => "test.pptx",
+            'slide_index' => 3,
+            'shape_to_clone' => 1,
+            'clone_from_slide' => 1,
+            'password' => "password",
+            'folder' => "TempSlidesSDK");
+        my $result = $utils->{testSlidesApi}->create_shape(%params);
+        ok(defined $result);
+    };
+    if ($@) {
+        fail("shape_clone_from_slide raised an exception: $@");
     }
     pass();
 };

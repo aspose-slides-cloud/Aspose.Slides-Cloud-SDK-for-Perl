@@ -571,4 +571,53 @@ subtest 'delete table cell portion' => sub {
     pass();
 };
 
+subtest 'import table from workbook' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $source = read_file("TestData/oleObject.xlsx", { binmode => ':raw' });
+        my %params = (
+            'name' => "test.pptx",
+            'slide_index' => 9,
+            'worksheet_name' => "Sheet1",
+            'cell_range' => "A1:B5",
+            'document' => $source,
+            'password' => "password",
+            'folder' => "TempSlidesSDK");
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+        is($result->{type}, "Table");
+    };
+    if ($@) {
+        fail("import_table_from_workbook raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'import table from workbook by path' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $source = read_file("TestData/oleObject.xlsx", { binmode => ':raw' });
+        my %upload_params = ('path' => "TempSlidesSDK/oleObject.xlsx", 'file' => $source);
+        $utils->{testSlidesApi}->upload_file(%upload_params);
+
+        my %params = (
+            'name' => "test.pptx",
+            'slide_index' => 9,
+            'worksheet_name' => "Sheet1",
+            'cell_range' => "A1:B5",
+            'workbook_path' => "TempSlidesSDK/oleObject.xlsx",
+            'password' => "password",
+            'folder' => "TempSlidesSDK");
+        my $result = $utils->{testSlidesApi}->import_table_from_workbook(%params);
+        is($result->{type}, "Table");
+    };
+    if ($@) {
+        fail("import_table_from_workbook raised an exception: $@");
+    }
+    pass();
+};
+
 done_testing;
