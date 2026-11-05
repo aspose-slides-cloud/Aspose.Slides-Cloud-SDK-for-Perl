@@ -186,6 +186,13 @@ __PACKAGE__->method_documentation({
     	format => '',
     	read_only => '',
     		},
+    'pictures_compression' => {
+    	datatype => 'string',
+    	base_name => 'PicturesCompression',
+    	description => 'Represents the pictures compression level. Pictures are not compressed (DocumentResolution) by default. Not applied when TemplatesPath is set.',
+    	format => '',
+    	read_only => '',
+    		},
 });
 
 __PACKAGE__->swagger_types( {
@@ -201,7 +208,8 @@ __PACKAGE__->swagger_types( {
     'embed_images' => 'boolean',
     'slides_layout_options' => 'SlidesLayoutOptions',
     'templates_path' => 'string',
-    'disable_font_ligatures' => 'boolean'
+    'disable_font_ligatures' => 'boolean',
+    'pictures_compression' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -217,7 +225,8 @@ __PACKAGE__->attribute_map( {
     'embed_images' => 'EmbedImages',
     'slides_layout_options' => 'SlidesLayoutOptions',
     'templates_path' => 'TemplatesPath',
-    'disable_font_ligatures' => 'DisableFontLigatures'
+    'disable_font_ligatures' => 'DisableFontLigatures',
+    'pictures_compression' => 'PicturesCompression'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

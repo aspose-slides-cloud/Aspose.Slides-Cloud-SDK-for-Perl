@@ -58,7 +58,7 @@ subtest 'images get' => sub {
         ok(scalar @{$shape_result->{list}} == 1);
 
         undef $params{shape_index};
-        $params{alt_text} = "title";
+        $params{shape_alt_text} = "title";
         my $alt_result = $utils->{testSlidesApi}->get_slide_images(%params);
         ok(scalar @{$alt_result->{list}} == 0);
     };

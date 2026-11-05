@@ -250,6 +250,9 @@ sub is_good_type {
     if ($rule->{Type} eq 'int[]') {
         return $type eq 'int[]';
     }
+    if ($rule->{Type} eq 'string[]') {
+        return $type eq 'string[]';
+    }
     if ($rule->{Type} eq 'stream') {
         return $type eq 'File';
     }

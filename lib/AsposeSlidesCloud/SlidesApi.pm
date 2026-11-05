@@ -16034,6 +16034,236 @@ sub download_notes_slide_online {
 }
 
 #
+# download_paragraph
+#
+# Render paragraph to specified picture format.
+# 
+# @param string $name Presentation name. (required)
+# @param int $slide_index Slide index. (required)
+# @param int $shape_index Index of shape starting from 1 (required)
+# @param int $paragraph_index Paragraph index. (required)
+# @param string $format Export picture format. (required)
+# @param double $scale_x X scale ratio. (optional, default to 0.0)
+# @param double $scale_y Y scale ratio. (optional, default to 0.0)
+# @param int $quality Image quality (1 to 100); applies to JPEG only. (optional, default to 100)
+# @param string $password Document password. (optional)
+# @param string $folder Presentation folder. (optional)
+# @param string $storage Presentation storage. (optional)
+# @param string $fonts_folder Fonts folder. (optional)
+# @param string $sub_shape Sub-shape path (e.g. \&quot;3\&quot;, \&quot;3/shapes/2). (optional)
+{
+    my $params = {
+    'name' => {
+        data_type => 'string',
+        description => 'Presentation name.',
+        required => '1',
+    },
+    'slide_index' => {
+        data_type => 'int',
+        description => 'Slide index.',
+        required => '1',
+    },
+    'shape_index' => {
+        data_type => 'int',
+        description => 'Index of shape starting from 1',
+        required => '1',
+    },
+    'paragraph_index' => {
+        data_type => 'int',
+        description => 'Paragraph index.',
+        required => '1',
+    },
+    'format' => {
+        data_type => 'string',
+        description => 'Export picture format.',
+        required => '1',
+    },
+    'scale_x' => {
+        data_type => 'double',
+        description => 'X scale ratio.',
+        required => '0',
+    },
+    'scale_y' => {
+        data_type => 'double',
+        description => 'Y scale ratio.',
+        required => '0',
+    },
+    'quality' => {
+        data_type => 'int',
+        description => 'Image quality (1 to 100); applies to JPEG only.',
+        required => '0',
+    },
+    'password' => {
+        data_type => 'string',
+        description => 'Document password.',
+        required => '0',
+    },
+    'folder' => {
+        data_type => 'string',
+        description => 'Presentation folder.',
+        required => '0',
+    },
+    'storage' => {
+        data_type => 'string',
+        description => 'Presentation storage.',
+        required => '0',
+    },
+    'fonts_folder' => {
+        data_type => 'string',
+        description => 'Fonts folder.',
+        required => '0',
+    },
+    'sub_shape' => {
+        data_type => 'string',
+        description => 'Sub-shape path (e.g. \&quot;3\&quot;, \&quot;3/shapes/2).',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'download_paragraph' } = { 
+    	summary => 'Render paragraph to specified picture format.',
+        params => $params,
+        returns => 'File',
+        };
+}
+# @return File
+#
+sub download_paragraph {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'name' is set
+    unless (exists $args{'name'} && defined $args{'name'} && $args{'name'}) {
+      croak("Missing the required parameter 'name' when calling download_paragraph");
+    }
+
+    # verify the required parameter 'slide_index' is set
+    unless (exists $args{'slide_index'} && defined $args{'slide_index'}) {
+      croak("Missing the required parameter 'slide_index' when calling download_paragraph");
+    }
+
+    # verify the required parameter 'shape_index' is set
+    unless (exists $args{'shape_index'} && defined $args{'shape_index'}) {
+      croak("Missing the required parameter 'shape_index' when calling download_paragraph");
+    }
+
+    # verify the required parameter 'paragraph_index' is set
+    unless (exists $args{'paragraph_index'} && defined $args{'paragraph_index'}) {
+      croak("Missing the required parameter 'paragraph_index' when calling download_paragraph");
+    }
+
+    # verify the required parameter 'format' is set
+    unless (exists $args{'format'} && defined $args{'format'} && $args{'format'}) {
+      croak("Missing the required parameter 'format' when calling download_paragraph");
+    }
+
+    # verify enum value
+    if (!grep(/^$args{'format'}$/i, ( 'Jpeg', 'Png', 'Gif', 'Bmp', 'Tiff' ))) {
+      croak("Invalid value for 'format': " . $args{'format'});
+    }
+
+    # parse inputs
+    my $_resource_path = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/{format}';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('multipart/form-data');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    # query params
+    if (exists $args{'scale_x'} && defined $args{'scale_x'}) {
+        $query_params->{'scaleX'} = $self->{api_client}->to_query_value($args{'scale_x'});
+    }
+
+    # query params
+    if (exists $args{'scale_y'} && defined $args{'scale_y'}) {
+        $query_params->{'scaleY'} = $self->{api_client}->to_query_value($args{'scale_y'});
+    }
+
+    # query params
+    if (exists $args{'quality'} && defined $args{'quality'}) {
+        $query_params->{'quality'} = $self->{api_client}->to_query_value($args{'quality'});
+    }
+
+    # query params
+    if (exists $args{'folder'} && defined $args{'folder'}) {
+        $query_params->{'folder'} = $self->{api_client}->to_query_value($args{'folder'});
+    }
+
+    # query params
+    if (exists $args{'storage'} && defined $args{'storage'}) {
+        $query_params->{'storage'} = $self->{api_client}->to_query_value($args{'storage'});
+    }
+
+    # query params
+    if (exists $args{'fonts_folder'} && defined $args{'fonts_folder'}) {
+        $query_params->{'fontsFolder'} = $self->{api_client}->to_query_value($args{'fonts_folder'});
+    }
+
+    # query params
+    if (exists $args{'sub_shape'} && defined $args{'sub_shape'}) {
+        $query_params->{'subShape'} = $self->{api_client}->to_query_value($args{'sub_shape'});
+    }
+
+    # header params
+    if ( exists $args{'password'}) {
+        $header_params->{':password'} = $self->{api_client}->to_header_value($args{'password'});
+    }
+
+    # path params
+    if ( exists $args{'name'}) {
+        my $_base_variable = "{" . "name" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'name'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'slide_index'}) {
+        my $_base_variable = "{" . "slideIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'slide_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'shape_index'}) {
+        my $_base_variable = "{" . "shapeIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'shape_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'paragraph_index'}) {
+        my $_base_variable = "{" . "paragraphIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'paragraph_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'format'}) {
+        my $_base_variable = "{" . "format" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'format'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    my $files = [];
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $files);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('File', $response);
+    return $_response_object;
+}
+
+#
 # download_presentation
 #
 # Save a presentation to a specified format.
@@ -17294,6 +17524,261 @@ sub download_special_slide_shape {
         $_body_data = $args{'options'};
     }
 
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $files);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('File', $response);
+    return $_response_object;
+}
+
+#
+# download_table_cell_paragraph
+#
+# Render table cell paragraph to specified picture format.
+# 
+# @param string $name Document name. (required)
+# @param int $slide_index Slide index. (required)
+# @param int $shape_index Shape index. (required)
+# @param int $row_index Row index. (required)
+# @param int $cell_index Table cell index. (required)
+# @param int $paragraph_index Paragraph index. (required)
+# @param string $format Export picture format. (required)
+# @param double $scale_x X scale ratio. (optional, default to 0.0)
+# @param double $scale_y Y scale ratio. (optional, default to 0.0)
+# @param int $quality Image quality (1 to 100); applies to JPEG only. (optional, default to 100)
+# @param string $password Document password. (optional)
+# @param string $folder Document folder. (optional)
+# @param string $storage Document storage. (optional)
+# @param string $fonts_folder Fonts folder. (optional)
+{
+    my $params = {
+    'name' => {
+        data_type => 'string',
+        description => 'Document name.',
+        required => '1',
+    },
+    'slide_index' => {
+        data_type => 'int',
+        description => 'Slide index.',
+        required => '1',
+    },
+    'shape_index' => {
+        data_type => 'int',
+        description => 'Shape index.',
+        required => '1',
+    },
+    'row_index' => {
+        data_type => 'int',
+        description => 'Row index.',
+        required => '1',
+    },
+    'cell_index' => {
+        data_type => 'int',
+        description => 'Table cell index.',
+        required => '1',
+    },
+    'paragraph_index' => {
+        data_type => 'int',
+        description => 'Paragraph index.',
+        required => '1',
+    },
+    'format' => {
+        data_type => 'string',
+        description => 'Export picture format.',
+        required => '1',
+    },
+    'scale_x' => {
+        data_type => 'double',
+        description => 'X scale ratio.',
+        required => '0',
+    },
+    'scale_y' => {
+        data_type => 'double',
+        description => 'Y scale ratio.',
+        required => '0',
+    },
+    'quality' => {
+        data_type => 'int',
+        description => 'Image quality (1 to 100); applies to JPEG only.',
+        required => '0',
+    },
+    'password' => {
+        data_type => 'string',
+        description => 'Document password.',
+        required => '0',
+    },
+    'folder' => {
+        data_type => 'string',
+        description => 'Document folder.',
+        required => '0',
+    },
+    'storage' => {
+        data_type => 'string',
+        description => 'Document storage.',
+        required => '0',
+    },
+    'fonts_folder' => {
+        data_type => 'string',
+        description => 'Fonts folder.',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'download_table_cell_paragraph' } = { 
+    	summary => 'Render table cell paragraph to specified picture format.',
+        params => $params,
+        returns => 'File',
+        };
+}
+# @return File
+#
+sub download_table_cell_paragraph {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'name' is set
+    unless (exists $args{'name'} && defined $args{'name'} && $args{'name'}) {
+      croak("Missing the required parameter 'name' when calling download_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'slide_index' is set
+    unless (exists $args{'slide_index'} && defined $args{'slide_index'}) {
+      croak("Missing the required parameter 'slide_index' when calling download_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'shape_index' is set
+    unless (exists $args{'shape_index'} && defined $args{'shape_index'}) {
+      croak("Missing the required parameter 'shape_index' when calling download_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'row_index' is set
+    unless (exists $args{'row_index'} && defined $args{'row_index'}) {
+      croak("Missing the required parameter 'row_index' when calling download_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'cell_index' is set
+    unless (exists $args{'cell_index'} && defined $args{'cell_index'}) {
+      croak("Missing the required parameter 'cell_index' when calling download_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'paragraph_index' is set
+    unless (exists $args{'paragraph_index'} && defined $args{'paragraph_index'}) {
+      croak("Missing the required parameter 'paragraph_index' when calling download_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'format' is set
+    unless (exists $args{'format'} && defined $args{'format'} && $args{'format'}) {
+      croak("Missing the required parameter 'format' when calling download_table_cell_paragraph");
+    }
+
+    # verify enum value
+    if (!grep(/^$args{'format'}$/i, ( 'Jpeg', 'Png', 'Gif', 'Bmp', 'Tiff' ))) {
+      croak("Invalid value for 'format': " . $args{'format'});
+    }
+
+    # parse inputs
+    my $_resource_path = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/{format}';
+
+    my $_method = 'POST';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('multipart/form-data');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    # query params
+    if (exists $args{'scale_x'} && defined $args{'scale_x'}) {
+        $query_params->{'scaleX'} = $self->{api_client}->to_query_value($args{'scale_x'});
+    }
+
+    # query params
+    if (exists $args{'scale_y'} && defined $args{'scale_y'}) {
+        $query_params->{'scaleY'} = $self->{api_client}->to_query_value($args{'scale_y'});
+    }
+
+    # query params
+    if (exists $args{'quality'} && defined $args{'quality'}) {
+        $query_params->{'quality'} = $self->{api_client}->to_query_value($args{'quality'});
+    }
+
+    # query params
+    if (exists $args{'folder'} && defined $args{'folder'}) {
+        $query_params->{'folder'} = $self->{api_client}->to_query_value($args{'folder'});
+    }
+
+    # query params
+    if (exists $args{'storage'} && defined $args{'storage'}) {
+        $query_params->{'storage'} = $self->{api_client}->to_query_value($args{'storage'});
+    }
+
+    # query params
+    if (exists $args{'fonts_folder'} && defined $args{'fonts_folder'}) {
+        $query_params->{'fontsFolder'} = $self->{api_client}->to_query_value($args{'fonts_folder'});
+    }
+
+    # header params
+    if ( exists $args{'password'}) {
+        $header_params->{':password'} = $self->{api_client}->to_header_value($args{'password'});
+    }
+
+    # path params
+    if ( exists $args{'name'}) {
+        my $_base_variable = "{" . "name" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'name'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'slide_index'}) {
+        my $_base_variable = "{" . "slideIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'slide_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'shape_index'}) {
+        my $_base_variable = "{" . "shapeIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'shape_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'row_index'}) {
+        my $_base_variable = "{" . "rowIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'row_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'cell_index'}) {
+        my $_base_variable = "{" . "cellIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'cell_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'paragraph_index'}) {
+        my $_base_variable = "{" . "paragraphIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'paragraph_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'format'}) {
+        my $_base_variable = "{" . "format" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'format'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    my $files = [];
     # make the API Call
     my $response = $self->{api_client}->call_api($_resource_path, $_method,
                                            $query_params, $form_params,
@@ -30313,6 +30798,248 @@ sub save_math_portion {
 }
 
 #
+# save_paragraph
+#
+# Render paragraph to specified picture format and save it to the storage.
+# 
+# @param string $name Presentation name. (required)
+# @param int $slide_index Slide index. (required)
+# @param int $shape_index Index of shape starting from 1 (required)
+# @param int $paragraph_index Paragraph index. (required)
+# @param string $format Export picture format. (required)
+# @param string $out_path Output path. (required)
+# @param double $scale_x X scale ratio. (optional, default to 0.0)
+# @param double $scale_y Y scale ratio. (optional, default to 0.0)
+# @param int $quality Image quality (1 to 100); applies to JPEG only. (optional, default to 100)
+# @param string $password Document password. (optional)
+# @param string $folder Presentation folder. (optional)
+# @param string $storage Presentation storage. (optional)
+# @param string $fonts_folder Fonts folder. (optional)
+# @param string $sub_shape Sub-shape path (e.g. \&quot;3\&quot;, \&quot;3/shapes/2). (optional)
+{
+    my $params = {
+    'name' => {
+        data_type => 'string',
+        description => 'Presentation name.',
+        required => '1',
+    },
+    'slide_index' => {
+        data_type => 'int',
+        description => 'Slide index.',
+        required => '1',
+    },
+    'shape_index' => {
+        data_type => 'int',
+        description => 'Index of shape starting from 1',
+        required => '1',
+    },
+    'paragraph_index' => {
+        data_type => 'int',
+        description => 'Paragraph index.',
+        required => '1',
+    },
+    'format' => {
+        data_type => 'string',
+        description => 'Export picture format.',
+        required => '1',
+    },
+    'out_path' => {
+        data_type => 'string',
+        description => 'Output path.',
+        required => '1',
+    },
+    'scale_x' => {
+        data_type => 'double',
+        description => 'X scale ratio.',
+        required => '0',
+    },
+    'scale_y' => {
+        data_type => 'double',
+        description => 'Y scale ratio.',
+        required => '0',
+    },
+    'quality' => {
+        data_type => 'int',
+        description => 'Image quality (1 to 100); applies to JPEG only.',
+        required => '0',
+    },
+    'password' => {
+        data_type => 'string',
+        description => 'Document password.',
+        required => '0',
+    },
+    'folder' => {
+        data_type => 'string',
+        description => 'Presentation folder.',
+        required => '0',
+    },
+    'storage' => {
+        data_type => 'string',
+        description => 'Presentation storage.',
+        required => '0',
+    },
+    'fonts_folder' => {
+        data_type => 'string',
+        description => 'Fonts folder.',
+        required => '0',
+    },
+    'sub_shape' => {
+        data_type => 'string',
+        description => 'Sub-shape path (e.g. \&quot;3\&quot;, \&quot;3/shapes/2).',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'save_paragraph' } = { 
+    	summary => 'Render paragraph to specified picture format and save it to the storage.',
+        params => $params,
+        returns => undef,
+        };
+}
+# @return void
+#
+sub save_paragraph {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'name' is set
+    unless (exists $args{'name'} && defined $args{'name'} && $args{'name'}) {
+      croak("Missing the required parameter 'name' when calling save_paragraph");
+    }
+
+    # verify the required parameter 'slide_index' is set
+    unless (exists $args{'slide_index'} && defined $args{'slide_index'}) {
+      croak("Missing the required parameter 'slide_index' when calling save_paragraph");
+    }
+
+    # verify the required parameter 'shape_index' is set
+    unless (exists $args{'shape_index'} && defined $args{'shape_index'}) {
+      croak("Missing the required parameter 'shape_index' when calling save_paragraph");
+    }
+
+    # verify the required parameter 'paragraph_index' is set
+    unless (exists $args{'paragraph_index'} && defined $args{'paragraph_index'}) {
+      croak("Missing the required parameter 'paragraph_index' when calling save_paragraph");
+    }
+
+    # verify the required parameter 'format' is set
+    unless (exists $args{'format'} && defined $args{'format'} && $args{'format'}) {
+      croak("Missing the required parameter 'format' when calling save_paragraph");
+    }
+
+    # verify enum value
+    if (!grep(/^$args{'format'}$/i, ( 'Jpeg', 'Png', 'Gif', 'Bmp', 'Tiff' ))) {
+      croak("Invalid value for 'format': " . $args{'format'});
+    }
+
+    # verify the required parameter 'out_path' is set
+    unless (exists $args{'out_path'} && defined $args{'out_path'} && $args{'out_path'}) {
+      croak("Missing the required parameter 'out_path' when calling save_paragraph");
+    }
+
+    # parse inputs
+    my $_resource_path = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/{format}';
+
+    my $_method = 'PUT';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    # query params
+    if (exists $args{'out_path'} && defined $args{'out_path'}) {
+        $query_params->{'outPath'} = $self->{api_client}->to_query_value($args{'out_path'});
+    }
+
+    # query params
+    if (exists $args{'scale_x'} && defined $args{'scale_x'}) {
+        $query_params->{'scaleX'} = $self->{api_client}->to_query_value($args{'scale_x'});
+    }
+
+    # query params
+    if (exists $args{'scale_y'} && defined $args{'scale_y'}) {
+        $query_params->{'scaleY'} = $self->{api_client}->to_query_value($args{'scale_y'});
+    }
+
+    # query params
+    if (exists $args{'quality'} && defined $args{'quality'}) {
+        $query_params->{'quality'} = $self->{api_client}->to_query_value($args{'quality'});
+    }
+
+    # query params
+    if (exists $args{'folder'} && defined $args{'folder'}) {
+        $query_params->{'folder'} = $self->{api_client}->to_query_value($args{'folder'});
+    }
+
+    # query params
+    if (exists $args{'storage'} && defined $args{'storage'}) {
+        $query_params->{'storage'} = $self->{api_client}->to_query_value($args{'storage'});
+    }
+
+    # query params
+    if (exists $args{'fonts_folder'} && defined $args{'fonts_folder'}) {
+        $query_params->{'fontsFolder'} = $self->{api_client}->to_query_value($args{'fonts_folder'});
+    }
+
+    # query params
+    if (exists $args{'sub_shape'} && defined $args{'sub_shape'}) {
+        $query_params->{'subShape'} = $self->{api_client}->to_query_value($args{'sub_shape'});
+    }
+
+    # header params
+    if ( exists $args{'password'}) {
+        $header_params->{':password'} = $self->{api_client}->to_header_value($args{'password'});
+    }
+
+    # path params
+    if ( exists $args{'name'}) {
+        my $_base_variable = "{" . "name" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'name'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'slide_index'}) {
+        my $_base_variable = "{" . "slideIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'slide_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'shape_index'}) {
+        my $_base_variable = "{" . "shapeIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'shape_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'paragraph_index'}) {
+        my $_base_variable = "{" . "paragraphIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'paragraph_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'format'}) {
+        my $_base_variable = "{" . "format" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'format'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    my $files = [];
+    # make the API Call
+    $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $files);
+    return;
+}
+
+#
 # save_presentation
 #
 # Save a presentation to a specified format.
@@ -31563,6 +32290,273 @@ sub save_special_slide_shape {
         $_body_data = $args{'options'};
     }
 
+    # make the API Call
+    $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $files);
+    return;
+}
+
+#
+# save_table_cell_paragraph
+#
+# Render table cell paragraph to specified picture format and save it to the storage.
+# 
+# @param string $name Document name. (required)
+# @param int $slide_index Slide index. (required)
+# @param int $shape_index Shape index. (required)
+# @param int $row_index Row index. (required)
+# @param int $cell_index Table cell index. (required)
+# @param int $paragraph_index Paragraph index. (required)
+# @param string $format Export picture format. (required)
+# @param string $out_path Output path. (required)
+# @param double $scale_x X scale ratio. (optional, default to 0.0)
+# @param double $scale_y Y scale ratio. (optional, default to 0.0)
+# @param int $quality Image quality (1 to 100); applies to JPEG only. (optional, default to 100)
+# @param string $password Document password. (optional)
+# @param string $folder Document folder. (optional)
+# @param string $storage Document storage. (optional)
+# @param string $fonts_folder Fonts folder. (optional)
+{
+    my $params = {
+    'name' => {
+        data_type => 'string',
+        description => 'Document name.',
+        required => '1',
+    },
+    'slide_index' => {
+        data_type => 'int',
+        description => 'Slide index.',
+        required => '1',
+    },
+    'shape_index' => {
+        data_type => 'int',
+        description => 'Shape index.',
+        required => '1',
+    },
+    'row_index' => {
+        data_type => 'int',
+        description => 'Row index.',
+        required => '1',
+    },
+    'cell_index' => {
+        data_type => 'int',
+        description => 'Table cell index.',
+        required => '1',
+    },
+    'paragraph_index' => {
+        data_type => 'int',
+        description => 'Paragraph index.',
+        required => '1',
+    },
+    'format' => {
+        data_type => 'string',
+        description => 'Export picture format.',
+        required => '1',
+    },
+    'out_path' => {
+        data_type => 'string',
+        description => 'Output path.',
+        required => '1',
+    },
+    'scale_x' => {
+        data_type => 'double',
+        description => 'X scale ratio.',
+        required => '0',
+    },
+    'scale_y' => {
+        data_type => 'double',
+        description => 'Y scale ratio.',
+        required => '0',
+    },
+    'quality' => {
+        data_type => 'int',
+        description => 'Image quality (1 to 100); applies to JPEG only.',
+        required => '0',
+    },
+    'password' => {
+        data_type => 'string',
+        description => 'Document password.',
+        required => '0',
+    },
+    'folder' => {
+        data_type => 'string',
+        description => 'Document folder.',
+        required => '0',
+    },
+    'storage' => {
+        data_type => 'string',
+        description => 'Document storage.',
+        required => '0',
+    },
+    'fonts_folder' => {
+        data_type => 'string',
+        description => 'Fonts folder.',
+        required => '0',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'save_table_cell_paragraph' } = { 
+    	summary => 'Render table cell paragraph to specified picture format and save it to the storage.',
+        params => $params,
+        returns => undef,
+        };
+}
+# @return void
+#
+sub save_table_cell_paragraph {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'name' is set
+    unless (exists $args{'name'} && defined $args{'name'} && $args{'name'}) {
+      croak("Missing the required parameter 'name' when calling save_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'slide_index' is set
+    unless (exists $args{'slide_index'} && defined $args{'slide_index'}) {
+      croak("Missing the required parameter 'slide_index' when calling save_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'shape_index' is set
+    unless (exists $args{'shape_index'} && defined $args{'shape_index'}) {
+      croak("Missing the required parameter 'shape_index' when calling save_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'row_index' is set
+    unless (exists $args{'row_index'} && defined $args{'row_index'}) {
+      croak("Missing the required parameter 'row_index' when calling save_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'cell_index' is set
+    unless (exists $args{'cell_index'} && defined $args{'cell_index'}) {
+      croak("Missing the required parameter 'cell_index' when calling save_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'paragraph_index' is set
+    unless (exists $args{'paragraph_index'} && defined $args{'paragraph_index'}) {
+      croak("Missing the required parameter 'paragraph_index' when calling save_table_cell_paragraph");
+    }
+
+    # verify the required parameter 'format' is set
+    unless (exists $args{'format'} && defined $args{'format'} && $args{'format'}) {
+      croak("Missing the required parameter 'format' when calling save_table_cell_paragraph");
+    }
+
+    # verify enum value
+    if (!grep(/^$args{'format'}$/i, ( 'Jpeg', 'Png', 'Gif', 'Bmp', 'Tiff' ))) {
+      croak("Invalid value for 'format': " . $args{'format'});
+    }
+
+    # verify the required parameter 'out_path' is set
+    unless (exists $args{'out_path'} && defined $args{'out_path'} && $args{'out_path'}) {
+      croak("Missing the required parameter 'out_path' when calling save_table_cell_paragraph");
+    }
+
+    # parse inputs
+    my $_resource_path = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/{format}';
+
+    my $_method = 'PUT';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
+
+    # query params
+    if (exists $args{'out_path'} && defined $args{'out_path'}) {
+        $query_params->{'outPath'} = $self->{api_client}->to_query_value($args{'out_path'});
+    }
+
+    # query params
+    if (exists $args{'scale_x'} && defined $args{'scale_x'}) {
+        $query_params->{'scaleX'} = $self->{api_client}->to_query_value($args{'scale_x'});
+    }
+
+    # query params
+    if (exists $args{'scale_y'} && defined $args{'scale_y'}) {
+        $query_params->{'scaleY'} = $self->{api_client}->to_query_value($args{'scale_y'});
+    }
+
+    # query params
+    if (exists $args{'quality'} && defined $args{'quality'}) {
+        $query_params->{'quality'} = $self->{api_client}->to_query_value($args{'quality'});
+    }
+
+    # query params
+    if (exists $args{'folder'} && defined $args{'folder'}) {
+        $query_params->{'folder'} = $self->{api_client}->to_query_value($args{'folder'});
+    }
+
+    # query params
+    if (exists $args{'storage'} && defined $args{'storage'}) {
+        $query_params->{'storage'} = $self->{api_client}->to_query_value($args{'storage'});
+    }
+
+    # query params
+    if (exists $args{'fonts_folder'} && defined $args{'fonts_folder'}) {
+        $query_params->{'fontsFolder'} = $self->{api_client}->to_query_value($args{'fonts_folder'});
+    }
+
+    # header params
+    if ( exists $args{'password'}) {
+        $header_params->{':password'} = $self->{api_client}->to_header_value($args{'password'});
+    }
+
+    # path params
+    if ( exists $args{'name'}) {
+        my $_base_variable = "{" . "name" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'name'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'slide_index'}) {
+        my $_base_variable = "{" . "slideIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'slide_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'shape_index'}) {
+        my $_base_variable = "{" . "shapeIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'shape_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'row_index'}) {
+        my $_base_variable = "{" . "rowIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'row_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'cell_index'}) {
+        my $_base_variable = "{" . "cellIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'cell_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'paragraph_index'}) {
+        my $_base_variable = "{" . "paragraphIndex" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'paragraph_index'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    # path params
+    if ( exists $args{'format'}) {
+        my $_base_variable = "{" . "format" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'format'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    my $files = [];
     # make the API Call
     $self->{api_client}->call_api($_resource_path, $_method,
                                            $query_params, $form_params,

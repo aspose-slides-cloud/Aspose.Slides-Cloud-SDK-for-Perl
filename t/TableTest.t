@@ -435,6 +435,61 @@ subtest 'delete table cell paragraph' => sub {
     pass();
 };
 
+subtest 'download table cell paragraph' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my %params = (
+            'name' => "test.pptx", 
+            'password' => "password", 
+            'folder' => "TempSlidesSDK", 
+            'slide_index' => 9,
+            'shape_index' => 1, 
+            'row_index' => 1, 
+            'cell_index' => 1,
+            'paragraph_index' => 1,
+            'format' => 'Png');
+
+        my $response = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+        ok(length($response) > 0);
+    };
+    if ($@) {
+        fail("download_table_cell_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'save table cell paragraph' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $out_path = "TempSlidesSDK/tableCellParagraph.png";
+        my %params = (
+            'name' => "test.pptx", 
+            'password' => "password", 
+            'folder' => "TempSlidesSDK", 
+            'slide_index' => 9,
+            'shape_index' => 1, 
+            'row_index' => 1, 
+            'cell_index' => 1,
+            'paragraph_index' => 1,
+            'format' => 'Png',
+            'out_path' => $out_path);
+
+        $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+
+        my %exists_params = ('path' => $out_path);
+        my $exists = $utils->{testSlidesApi}->object_exists(%exists_params);
+        ok($exists->{exists});
+    };
+    if ($@) {
+        fail("save_table_cell_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
 subtest 'get table cell portions' => sub {
     eval {
 		my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");

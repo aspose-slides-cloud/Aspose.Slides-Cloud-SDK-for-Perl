@@ -477,4 +477,107 @@ subtest 'get sub-shape paragraph effective' => sub {
     pass();
 };
 
+subtest 'download paragraph' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my %params = ('name' => "test.pptx", 'slide_index' => 6, 'shape_index' => 2, 'paragraph_index' => 1, 'format' => 'Png', 'password' => "password", 'folder' => "TempSlidesSDK");
+        my $response = $utils->{testSlidesApi}->download_paragraph(%params);
+        ok(length($response) > 0);
+    };
+    if ($@) {
+        fail("download_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'download sub-shape paragraph' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my %params = (
+            'name' => "test.pptx", 
+            'slide_index' => 6, 
+            'shape_index' => 3, 
+            'paragraph_index' => 1, 
+            'format' => 'Png', 
+            'password' => "password", 
+            'folder' => "TempSlidesSDK", 
+            'sub_shape' => '1');
+        my $response = $utils->{testSlidesApi}->download_paragraph(%params);
+        ok(length($response) > 0);
+    };
+    if ($@) {
+        fail("download_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'download paragraph scaled' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my %params = ('name' => "test.pptx", 'slide_index' => 6, 'shape_index' => 2, 'paragraph_index' => 1, 'format' => 'Png', 'password' => "password", 'folder' => "TempSlidesSDK");
+        my $response = $utils->{testSlidesApi}->download_paragraph(%params);
+        $params{'scale_x'} = 2;
+        $params{'scale_y'} = 2;
+        my $scaled_response = $utils->{testSlidesApi}->download_paragraph(%params);
+        ok(length($scaled_response) > length($response));
+    };
+    if ($@) {
+        fail("download_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'save paragraph' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $out_path = "TempSlidesSDK/paragraph.png";
+        my %params = ('name' => "test.pptx", 'slide_index' => 6, 'shape_index' => 2, 'paragraph_index' => 1, 'format' => 'Png', 'out_path' => $out_path, 'password' => "password", 'folder' => "TempSlidesSDK");
+        $utils->{testSlidesApi}->save_paragraph(%params);
+
+        my %exists_params = ('path' => $out_path);
+        my $exists = $utils->{testSlidesApi}->object_exists(%exists_params);
+        ok($exists->{exists});
+    };
+    if ($@) {
+        fail("save_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'save sub-shape paragraph' => sub {
+    eval {
+        my %copy_params = ('src_path' => "TempTests/test.pptx", 'dest_path' => "TempSlidesSDK/test.pptx");
+        $utils->{testSlidesApi}->copy_file(%copy_params);
+
+        my $out_path = "TempSlidesSDK/paragraph.png";
+        my %params = (
+            'name' => "test.pptx", 
+            'slide_index' => 6, 
+            'shape_index' => 3, 
+            'paragraph_index' => 1, 
+            'format' => 'Png', 
+            'out_path' => $out_path, 
+            'password' => "password", 
+            'folder' => "TempSlidesSDK", 
+            'sub_shape' => '1');
+        $utils->{testSlidesApi}->save_paragraph(%params);
+
+        my %exists_params = ('path' => $out_path);
+        my $exists = $utils->{testSlidesApi}->object_exists(%exists_params);
+        ok($exists->{exists});
+    };
+    if ($@) {
+        fail("save_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
 done_testing;

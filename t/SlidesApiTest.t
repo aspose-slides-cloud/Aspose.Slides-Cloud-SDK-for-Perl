@@ -13057,6 +13057,216 @@ subtest 'download_notes_slide_online invalid fonts_folder' => sub {
 };
 
 #
+# download_paragraph test
+#
+subtest 'download_paragraph' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $utils->initialize('download_paragraph', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        fail("download_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'download_paragraph invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ name } = $utils->invalidize_param_value('download_paragraph', 'name', $params{ name }, 'string');
+    $utils->initialize('download_paragraph', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'name', 'string');
+    }
+};
+
+subtest 'download_paragraph invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('download_paragraph', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('download_paragraph', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'slide_index', 'int');
+    }
+};
+
+subtest 'download_paragraph invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('download_paragraph', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('download_paragraph', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'shape_index', 'int');
+    }
+};
+
+subtest 'download_paragraph invalid paragraph_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ paragraph_index } = $utils->invalidize_param_value('download_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int');
+    $utils->initialize('download_paragraph', 'paragraph_index', $params{ paragraph_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'paragraph_index', 'int');
+    }
+};
+
+subtest 'download_paragraph invalid format' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ format } = $utils->invalidize_param_value('download_paragraph', 'format', $params{ format }, 'string');
+    $utils->initialize('download_paragraph', 'format', $params{ format });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'format', $params{ format }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'format', 'string');
+    }
+};
+
+subtest 'download_paragraph invalid scale_x' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ scale_x } = $utils->invalidize_param_value('download_paragraph', 'scale_x', $params{ scale_x }, 'double');
+    $utils->initialize('download_paragraph', 'scale_x', $params{ scale_x });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'scale_x', $params{ scale_x }, 'double', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'scale_x', 'double');
+    }
+};
+
+subtest 'download_paragraph invalid scale_y' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ scale_y } = $utils->invalidize_param_value('download_paragraph', 'scale_y', $params{ scale_y }, 'double');
+    $utils->initialize('download_paragraph', 'scale_y', $params{ scale_y });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'scale_y', $params{ scale_y }, 'double', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'scale_y', 'double');
+    }
+};
+
+subtest 'download_paragraph invalid quality' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ quality } = $utils->invalidize_param_value('download_paragraph', 'quality', $params{ quality }, 'int');
+    $utils->initialize('download_paragraph', 'quality', $params{ quality });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'quality', $params{ quality }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'quality', 'int');
+    }
+};
+
+subtest 'download_paragraph invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ password } = $utils->invalidize_param_value('download_paragraph', 'password', $params{ password }, 'string');
+    $utils->initialize('download_paragraph', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'password', 'string');
+    }
+};
+
+subtest 'download_paragraph invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('download_paragraph', 'folder', $params{ folder }, 'string');
+    $utils->initialize('download_paragraph', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'folder', 'string');
+    }
+};
+
+subtest 'download_paragraph invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('download_paragraph', 'storage', $params{ storage }, 'string');
+    $utils->initialize('download_paragraph', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'storage', 'string');
+    }
+};
+
+subtest 'download_paragraph invalid fonts_folder' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ fonts_folder } = $utils->invalidize_param_value('download_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string');
+    $utils->initialize('download_paragraph', 'fonts_folder', $params{ fonts_folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'fonts_folder', 'string');
+    }
+};
+
+subtest 'download_paragraph invalid sub_shape' => sub {
+    my %params = ('name' => $utils->get_param_value('download_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('download_paragraph', 'sub_shape', 'string'));
+    $params{ sub_shape } = $utils->invalidize_param_value('download_paragraph', 'sub_shape', $params{ sub_shape }, 'string');
+    $utils->initialize('download_paragraph', 'sub_shape', $params{ sub_shape });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_paragraph', 'sub_shape', $params{ sub_shape }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_paragraph', 'sub_shape', 'string');
+    }
+};
+
+#
 # download_presentation test
 #
 subtest 'download_presentation' => sub {
@@ -14163,6 +14373,231 @@ subtest 'download_special_slide_shape invalid sub_shape' => sub {
         $utils->assert_error('download_special_slide_shape', 'sub_shape', $params{ sub_shape }, 'string', $@);
     } else {
         $utils->assert_no_error('download_special_slide_shape', 'sub_shape', 'string');
+    }
+};
+
+#
+# download_table_cell_paragraph test
+#
+subtest 'download_table_cell_paragraph' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $utils->initialize('download_table_cell_paragraph', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        fail("download_table_cell_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'download_table_cell_paragraph invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ name } = $utils->invalidize_param_value('download_table_cell_paragraph', 'name', $params{ name }, 'string');
+    $utils->initialize('download_table_cell_paragraph', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'name', 'string');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('download_table_cell_paragraph', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('download_table_cell_paragraph', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'slide_index', 'int');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('download_table_cell_paragraph', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('download_table_cell_paragraph', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'shape_index', 'int');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid row_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ row_index } = $utils->invalidize_param_value('download_table_cell_paragraph', 'row_index', $params{ row_index }, 'int');
+    $utils->initialize('download_table_cell_paragraph', 'row_index', $params{ row_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'row_index', $params{ row_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'row_index', 'int');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid cell_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ cell_index } = $utils->invalidize_param_value('download_table_cell_paragraph', 'cell_index', $params{ cell_index }, 'int');
+    $utils->initialize('download_table_cell_paragraph', 'cell_index', $params{ cell_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'cell_index', $params{ cell_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'cell_index', 'int');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid paragraph_index' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ paragraph_index } = $utils->invalidize_param_value('download_table_cell_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int');
+    $utils->initialize('download_table_cell_paragraph', 'paragraph_index', $params{ paragraph_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'paragraph_index', 'int');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid format' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ format } = $utils->invalidize_param_value('download_table_cell_paragraph', 'format', $params{ format }, 'string');
+    $utils->initialize('download_table_cell_paragraph', 'format', $params{ format });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'format', $params{ format }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'format', 'string');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid scale_x' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ scale_x } = $utils->invalidize_param_value('download_table_cell_paragraph', 'scale_x', $params{ scale_x }, 'double');
+    $utils->initialize('download_table_cell_paragraph', 'scale_x', $params{ scale_x });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'scale_x', $params{ scale_x }, 'double', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'scale_x', 'double');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid scale_y' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ scale_y } = $utils->invalidize_param_value('download_table_cell_paragraph', 'scale_y', $params{ scale_y }, 'double');
+    $utils->initialize('download_table_cell_paragraph', 'scale_y', $params{ scale_y });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'scale_y', $params{ scale_y }, 'double', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'scale_y', 'double');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid quality' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ quality } = $utils->invalidize_param_value('download_table_cell_paragraph', 'quality', $params{ quality }, 'int');
+    $utils->initialize('download_table_cell_paragraph', 'quality', $params{ quality });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'quality', $params{ quality }, 'int', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'quality', 'int');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ password } = $utils->invalidize_param_value('download_table_cell_paragraph', 'password', $params{ password }, 'string');
+    $utils->initialize('download_table_cell_paragraph', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'password', 'string');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('download_table_cell_paragraph', 'folder', $params{ folder }, 'string');
+    $utils->initialize('download_table_cell_paragraph', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'folder', 'string');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('download_table_cell_paragraph', 'storage', $params{ storage }, 'string');
+    $utils->initialize('download_table_cell_paragraph', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'storage', 'string');
+    }
+};
+
+subtest 'download_table_cell_paragraph invalid fonts_folder' => sub {
+    my %params = ('name' => $utils->get_param_value('download_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('download_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('download_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('download_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('download_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('download_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('download_table_cell_paragraph', 'format', 'string'), 'scale_x' => $utils->get_param_value('download_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('download_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('download_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('download_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('download_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('download_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('download_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ fonts_folder } = $utils->invalidize_param_value('download_table_cell_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string');
+    $utils->initialize('download_table_cell_paragraph', 'fonts_folder', $params{ fonts_folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->download_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('download_table_cell_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('download_table_cell_paragraph', 'fonts_folder', 'string');
     }
 };
 
@@ -24637,6 +25072,231 @@ subtest 'save_math_portion invalid storage' => sub {
 };
 
 #
+# save_paragraph test
+#
+subtest 'save_paragraph' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $utils->initialize('save_paragraph', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        fail("save_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'save_paragraph invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ name } = $utils->invalidize_param_value('save_paragraph', 'name', $params{ name }, 'string');
+    $utils->initialize('save_paragraph', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'name', 'string');
+    }
+};
+
+subtest 'save_paragraph invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('save_paragraph', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('save_paragraph', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'slide_index', 'int');
+    }
+};
+
+subtest 'save_paragraph invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('save_paragraph', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('save_paragraph', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'shape_index', 'int');
+    }
+};
+
+subtest 'save_paragraph invalid paragraph_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ paragraph_index } = $utils->invalidize_param_value('save_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int');
+    $utils->initialize('save_paragraph', 'paragraph_index', $params{ paragraph_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'paragraph_index', 'int');
+    }
+};
+
+subtest 'save_paragraph invalid format' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ format } = $utils->invalidize_param_value('save_paragraph', 'format', $params{ format }, 'string');
+    $utils->initialize('save_paragraph', 'format', $params{ format });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'format', $params{ format }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'format', 'string');
+    }
+};
+
+subtest 'save_paragraph invalid out_path' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ out_path } = $utils->invalidize_param_value('save_paragraph', 'out_path', $params{ out_path }, 'string');
+    $utils->initialize('save_paragraph', 'out_path', $params{ out_path });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'out_path', $params{ out_path }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'out_path', 'string');
+    }
+};
+
+subtest 'save_paragraph invalid scale_x' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ scale_x } = $utils->invalidize_param_value('save_paragraph', 'scale_x', $params{ scale_x }, 'double');
+    $utils->initialize('save_paragraph', 'scale_x', $params{ scale_x });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'scale_x', $params{ scale_x }, 'double', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'scale_x', 'double');
+    }
+};
+
+subtest 'save_paragraph invalid scale_y' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ scale_y } = $utils->invalidize_param_value('save_paragraph', 'scale_y', $params{ scale_y }, 'double');
+    $utils->initialize('save_paragraph', 'scale_y', $params{ scale_y });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'scale_y', $params{ scale_y }, 'double', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'scale_y', 'double');
+    }
+};
+
+subtest 'save_paragraph invalid quality' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ quality } = $utils->invalidize_param_value('save_paragraph', 'quality', $params{ quality }, 'int');
+    $utils->initialize('save_paragraph', 'quality', $params{ quality });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'quality', $params{ quality }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'quality', 'int');
+    }
+};
+
+subtest 'save_paragraph invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ password } = $utils->invalidize_param_value('save_paragraph', 'password', $params{ password }, 'string');
+    $utils->initialize('save_paragraph', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'password', 'string');
+    }
+};
+
+subtest 'save_paragraph invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('save_paragraph', 'folder', $params{ folder }, 'string');
+    $utils->initialize('save_paragraph', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'folder', 'string');
+    }
+};
+
+subtest 'save_paragraph invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('save_paragraph', 'storage', $params{ storage }, 'string');
+    $utils->initialize('save_paragraph', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'storage', 'string');
+    }
+};
+
+subtest 'save_paragraph invalid fonts_folder' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ fonts_folder } = $utils->invalidize_param_value('save_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string');
+    $utils->initialize('save_paragraph', 'fonts_folder', $params{ fonts_folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'fonts_folder', 'string');
+    }
+};
+
+subtest 'save_paragraph invalid sub_shape' => sub {
+    my %params = ('name' => $utils->get_param_value('save_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_paragraph', 'shape_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_paragraph', 'fonts_folder', 'string'), 'sub_shape' => $utils->get_param_value('save_paragraph', 'sub_shape', 'string'));
+    $params{ sub_shape } = $utils->invalidize_param_value('save_paragraph', 'sub_shape', $params{ sub_shape }, 'string');
+    $utils->initialize('save_paragraph', 'sub_shape', $params{ sub_shape });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_paragraph', 'sub_shape', $params{ sub_shape }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_paragraph', 'sub_shape', 'string');
+    }
+};
+
+#
 # save_presentation test
 #
 subtest 'save_presentation' => sub {
@@ -25788,6 +26448,246 @@ subtest 'save_special_slide_shape invalid sub_shape' => sub {
         $utils->assert_error('save_special_slide_shape', 'sub_shape', $params{ sub_shape }, 'string', $@);
     } else {
         $utils->assert_no_error('save_special_slide_shape', 'sub_shape', 'string');
+    }
+};
+
+#
+# save_table_cell_paragraph test
+#
+subtest 'save_table_cell_paragraph' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $utils->initialize('save_table_cell_paragraph', '');
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        fail("save_table_cell_paragraph raised an exception: $@");
+    }
+    pass();
+};
+
+subtest 'save_table_cell_paragraph invalid name' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ name } = $utils->invalidize_param_value('save_table_cell_paragraph', 'name', $params{ name }, 'string');
+    $utils->initialize('save_table_cell_paragraph', 'name', $params{ name });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'name', $params{ name }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'name', 'string');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid slide_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ slide_index } = $utils->invalidize_param_value('save_table_cell_paragraph', 'slide_index', $params{ slide_index }, 'int');
+    $utils->initialize('save_table_cell_paragraph', 'slide_index', $params{ slide_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'slide_index', $params{ slide_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'slide_index', 'int');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid shape_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ shape_index } = $utils->invalidize_param_value('save_table_cell_paragraph', 'shape_index', $params{ shape_index }, 'int');
+    $utils->initialize('save_table_cell_paragraph', 'shape_index', $params{ shape_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'shape_index', $params{ shape_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'shape_index', 'int');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid row_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ row_index } = $utils->invalidize_param_value('save_table_cell_paragraph', 'row_index', $params{ row_index }, 'int');
+    $utils->initialize('save_table_cell_paragraph', 'row_index', $params{ row_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'row_index', $params{ row_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'row_index', 'int');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid cell_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ cell_index } = $utils->invalidize_param_value('save_table_cell_paragraph', 'cell_index', $params{ cell_index }, 'int');
+    $utils->initialize('save_table_cell_paragraph', 'cell_index', $params{ cell_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'cell_index', $params{ cell_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'cell_index', 'int');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid paragraph_index' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ paragraph_index } = $utils->invalidize_param_value('save_table_cell_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int');
+    $utils->initialize('save_table_cell_paragraph', 'paragraph_index', $params{ paragraph_index });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'paragraph_index', $params{ paragraph_index }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'paragraph_index', 'int');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid format' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ format } = $utils->invalidize_param_value('save_table_cell_paragraph', 'format', $params{ format }, 'string');
+    $utils->initialize('save_table_cell_paragraph', 'format', $params{ format });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'format', $params{ format }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'format', 'string');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid out_path' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ out_path } = $utils->invalidize_param_value('save_table_cell_paragraph', 'out_path', $params{ out_path }, 'string');
+    $utils->initialize('save_table_cell_paragraph', 'out_path', $params{ out_path });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'out_path', $params{ out_path }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'out_path', 'string');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid scale_x' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ scale_x } = $utils->invalidize_param_value('save_table_cell_paragraph', 'scale_x', $params{ scale_x }, 'double');
+    $utils->initialize('save_table_cell_paragraph', 'scale_x', $params{ scale_x });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'scale_x', $params{ scale_x }, 'double', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'scale_x', 'double');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid scale_y' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ scale_y } = $utils->invalidize_param_value('save_table_cell_paragraph', 'scale_y', $params{ scale_y }, 'double');
+    $utils->initialize('save_table_cell_paragraph', 'scale_y', $params{ scale_y });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'scale_y', $params{ scale_y }, 'double', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'scale_y', 'double');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid quality' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ quality } = $utils->invalidize_param_value('save_table_cell_paragraph', 'quality', $params{ quality }, 'int');
+    $utils->initialize('save_table_cell_paragraph', 'quality', $params{ quality });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'quality', $params{ quality }, 'int', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'quality', 'int');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid password' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ password } = $utils->invalidize_param_value('save_table_cell_paragraph', 'password', $params{ password }, 'string');
+    $utils->initialize('save_table_cell_paragraph', 'password', $params{ password });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'password', $params{ password }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'password', 'string');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid folder' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ folder } = $utils->invalidize_param_value('save_table_cell_paragraph', 'folder', $params{ folder }, 'string');
+    $utils->initialize('save_table_cell_paragraph', 'folder', $params{ folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'folder', $params{ folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'folder', 'string');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid storage' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ storage } = $utils->invalidize_param_value('save_table_cell_paragraph', 'storage', $params{ storage }, 'string');
+    $utils->initialize('save_table_cell_paragraph', 'storage', $params{ storage });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'storage', $params{ storage }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'storage', 'string');
+    }
+};
+
+subtest 'save_table_cell_paragraph invalid fonts_folder' => sub {
+    my %params = ('name' => $utils->get_param_value('save_table_cell_paragraph', 'name', 'string'), 'slide_index' => $utils->get_param_value('save_table_cell_paragraph', 'slide_index', 'int'), 'shape_index' => $utils->get_param_value('save_table_cell_paragraph', 'shape_index', 'int'), 'row_index' => $utils->get_param_value('save_table_cell_paragraph', 'row_index', 'int'), 'cell_index' => $utils->get_param_value('save_table_cell_paragraph', 'cell_index', 'int'), 'paragraph_index' => $utils->get_param_value('save_table_cell_paragraph', 'paragraph_index', 'int'), 'format' => $utils->get_param_value('save_table_cell_paragraph', 'format', 'string'), 'out_path' => $utils->get_param_value('save_table_cell_paragraph', 'out_path', 'string'), 'scale_x' => $utils->get_param_value('save_table_cell_paragraph', 'scale_x', 'double'), 'scale_y' => $utils->get_param_value('save_table_cell_paragraph', 'scale_y', 'double'), 'quality' => $utils->get_param_value('save_table_cell_paragraph', 'quality', 'int'), 'password' => $utils->get_param_value('save_table_cell_paragraph', 'password', 'string'), 'folder' => $utils->get_param_value('save_table_cell_paragraph', 'folder', 'string'), 'storage' => $utils->get_param_value('save_table_cell_paragraph', 'storage', 'string'), 'fonts_folder' => $utils->get_param_value('save_table_cell_paragraph', 'fonts_folder', 'string'));
+    $params{ fonts_folder } = $utils->invalidize_param_value('save_table_cell_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string');
+    $utils->initialize('save_table_cell_paragraph', 'fonts_folder', $params{ fonts_folder });
+
+    eval {
+        my $result = $utils->{testSlidesApi}->save_table_cell_paragraph(%params);
+    };
+    if ($@) {
+        $utils->assert_error('save_table_cell_paragraph', 'fonts_folder', $params{ fonts_folder }, 'string', $@);
+    } else {
+        $utils->assert_no_error('save_table_cell_paragraph', 'fonts_folder', 'string');
     }
 };
 
